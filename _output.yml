@@ -1,0 +1,16 @@
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+bookdown::epub_book: default
+bookdown::gitbook:
+  css: style.css
+  config:
+    toc:
+      before: |
+        <li><a href="./">저녁이 있는 삶</a></li>
+      after: |
+        <li><a href="https://github.com/statkclee/r4inf" target="blank">작업 파일 원본(GitHub)</a></li>
+    edit: https://github.com/statkclee/r4inf/edit/master/%s

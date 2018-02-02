@@ -1,0 +1,58 @@
+--- 
+title: "R과 함께하는 정보 과학"
+author: "이광춘 - R Meetup 운영"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: statkclee/r4inf
+description: ""
+---
+
+# 기계와의 경쟁 [^joongang-yuval] {-}
+
+2014년부터 **xwMOOC** 프로젝트를 진행하면서 [소프트웨어 카펜트리(Software Carpentry)](https://software-carpentry.org/) 와
+[데이터 카펜트리(Data Carpentry)](https://datacarpentry.org/) 비영리 공공 프로젝트가 많은 영감을 주었다.
+그러던 와중에 2018년부터 **소프트웨어 교육** 이 초중등 교육과정에 의무화되었고, 
+알파고가 이세돌을 이긴 **알파고 쇼크** 가 한국사회에 엄청난 파장을 일으켰다. 
+그와 더불어 청년, 중장년, 노년 할 것 없이 실업률이 사회적 문제로 대두되면서 기계가 인간의 직업을 빼앗아가는 주범으로 주목되고 있는 한편, 
+**인공지능** 기술을 밑에 깔고 있는 다양한 제품과 서비스가 쏟아지면서 우리의 삶을 그 어느 때보다 풍요롭게 만들고 있다.
+
+컴퓨팅 사고력, 데이터 과학, 인공지능, 로봇/기계를 이해하는 사람과 그렇지 못한 사람간에 삶의 질 차이는 점점더 현격히 벌어질 것이다. 
+지금이라도 늦지 않았다. 늦었다는 것을 알아차렸을 때가 가장 빠른 시점이다.
+
+
+<img src="fig/paradigm-shift-korea.png" alt="패러다임 전환" width="77%" />
+
+유발 하라리 교수가 지적했듯이 데이터가 권력과 부의 원천이 되는 세상으로 접어들었는데 이에 대해서 컴퓨터와 적절하게 
+의사소통할 수 있는 언어가 필요하다. 
+[**R**](http://statkclee.github.io/data-science/ds-r-lang.html)는 일반인에게 많이 알려져 있지 않지만, 
+파이썬과 더불어 데이터 프로그래밍에 있어 유구한 역사와 탄탄한 사용자 기반을 가지고 최근들어 혁신적인 변화를 이끌고 있는 언어 중의 하나다.
+
+
+> "The future is here, it's just not evenly distributed yet."  
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - William Gibson
+> 
+> "고대에는 '땅'이 가장 중요했고 땅이 소수에게 집중되자 인간은 귀족과 평민으로 구분됐으며, 
+> 근대에는 '기계'가 중요해지면서 기계가 소수에게 집중되자 인간은 자본가와 노동자 계급으로 구분됐다". 
+> 이제는 **데이터**가 또 한번 인류를 구분하는 기준이 될 것이다. 
+> 향후 데이터가 소수에게 집중되면 단순 계급에 그치는 게 아니라 데이터를 가진 종과 그렇지 못한 종으로 분류될 것이이다. [^joongang-yuval]
+> 
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 유발 하라리(Yuval Noah Harari) 
+
+[^joongang-yuval]: ['사피엔스' 저자 유발 하라리 "인간을 해킹하는 시대가 온다", "머신러닝·AI·생물학 발전…뇌과학 이해도 한층 높여"](http://news.mk.co.kr/newsRead.php?year=2018&no=58432)
+
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+options(warn=-1)
+knitr::opts_chunk$set(cache=TRUE)
+# install.packages(c("readr", "tidyverse", "DT"), repos="http://cran.rstudio.com/")
+```

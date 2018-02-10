@@ -167,10 +167,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="5" data-path="r-iter.html"><a href="r-iter.html"><i class="fa fa-check"></i><b>5</b> 반복(Iteration)</a><ul>
 <li class="chapter" data-level="5.1" data-path="r-iter.html"><a href="r-iter.html#r-iter-update"><i class="fa fa-check"></i><b>5.1</b> 변수 갱신</a></li>
-<li class="chapter" data-level="5.2" data-path="r-iter.html"><a href="r-iter.html#while-r-iter-while"><i class="fa fa-check"></i><b>5.2</b> while문 {r-iter-while}</a></li>
-<li class="chapter" data-level="5.3" data-path="r-iter.html"><a href="r-iter.html#--r-iter-infinite-loop"><i class="fa fa-check"></i><b>5.3</b> 무한 루프 {r-iter-infinite-loop}</a></li>
-<li class="chapter" data-level="5.4" data-path="r-iter.html"><a href="r-iter.html#--break-r-iter-infinite-loop-break"><i class="fa fa-check"></i><b>5.4</b> 무한 반복과 <code>break</code> {r-iter-infinite-loop-break}</a></li>
-<li class="chapter" data-level="5.5" data-path="r-iter.html"><a href="r-iter.html#continue--r-iter-stop"><i class="fa fa-check"></i><b>5.5</b> <code>continue</code>로 반복 종료{r-iter-stop}</a></li>
+<li class="chapter" data-level="5.2" data-path="r-iter.html"><a href="r-iter.html#r-iter-while"><i class="fa fa-check"></i><b>5.2</b> while문</a></li>
+<li class="chapter" data-level="5.3" data-path="r-iter.html"><a href="r-iter.html#r-iter-infinite-loop"><i class="fa fa-check"></i><b>5.3</b> 무한 루프</a></li>
+<li class="chapter" data-level="5.4" data-path="r-iter.html"><a href="r-iter.html#--break"><i class="fa fa-check"></i><b>5.4</b> 무한 반복과 <code id="r-iter-infinite-loop-break">break</code></a></li>
+<li class="chapter" data-level="5.5" data-path="r-iter.html"><a href="r-iter.html#r-iter-stop"><i class="fa fa-check"></i><b>5.5</b> <code>next</code>로 반복 종료</a></li>
+<li class="chapter" data-level="5.6" data-path="r-iter.html"><a href="r-iter.html#r-iter-for"><i class="fa fa-check"></i><b>5.6</b> for문을 사용한 명확한 루프</a></li>
+<li class="chapter" data-level="5.7" data-path="r-iter.html"><a href="r-iter.html#r-iter-for-pattern"><i class="fa fa-check"></i><b>5.7</b> 루프 패턴</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="r-iter.html"><a href="r-iter.html#r-iter-for-pattern-sum"><i class="fa fa-check"></i><b>5.7.1</b> 계수(counting)와 합산 루프</a></li>
+<li class="chapter" data-level="5.7.2" data-path="r-iter.html"><a href="r-iter.html#r-iter-for-min-max"><i class="fa fa-check"></i><b>5.7.2</b> 최대값과 최소값 루프</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="r-iter.html"><a href="r-iter.html#r-iter-debug"><i class="fa fa-check"></i><b>5.8</b> 디버깅</a></li>
+<li class="chapter" data-level="5.9" data-path="r-iter.html"><a href="r-iter.html#r-iter-terminology"><i class="fa fa-check"></i><b>5.9</b> 용어정의</a></li>
+<li class="chapter" data-level="5.10" data-path="r-iter.html"><a href="r-iter.html#r-iter-ex"><i class="fa fa-check"></i><b>5.10</b> 연습문제</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/statkclee/r4inf" target="blank">작업 파일 원본(GitHub)</a></li>
@@ -259,28 +267,28 @@ NAs introduced by coercion </code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(i in <span class="dv">1</span>:<span class="dv">10</span>) {
   <span class="kw">cat</span>(<span class="kw">runif</span>(<span class="dv">1</span>),<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
 }</code></pre></div>
-<pre><code>## 0.7051646 
-## 0.5138941 
-## 0.1363068 
-## 0.2023108 
-## 0.7920102 
-## 0.8628118 
-## 0.9243335 
-## 0.761028 
-## 0.5861618 
-## 0.7717238</code></pre>
+<pre><code>## 0.3820214 
+## 0.2397551 
+## 0.8095699 
+## 0.4297601 
+## 0.6080594 
+## 0.2072915 
+## 0.4193731 
+## 0.7726375 
+## 0.4295457 
+## 0.6942592</code></pre>
 <p>상기 프로그램은 0.0 에서 1.0 구간에서 10개 난수 리스트를 생성한다.</p>
 <p><strong>연습문제</strong> 여러분의 컴퓨터에 프로그램을 실행해서, 어떤 난수가 생성되는지 살펴보세요. 한번 이상 프로그램을 실행하여 보고, 어떤 난수가 생성되는지 다시 살펴보세요.</p>
 <p><code>runif()</code> 함수는 난수를 다루는 많은 함수 중의 하나다. <code>sample()</code> 함수는 정수 난수 범위와 난수 갯수를 매개 변수를 입력받아 최저값(low)과 최고값(high) 사이 (최저값과, 최저값 모두 포함) 정수를 반환한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">10</span>, <span class="dv">5</span>)</code></pre></div>
-<pre><code>## [1] 10  3  4  6  5</code></pre>
+<pre><code>## [1]  2  4  9 10  7</code></pre>
 <p><code>sample(1:10, 5)</code> 실행문은 1 ~ 10 사이 정수 10개 중에서 난수로 5개를 추출한다는 뜻이다.</p>
 <p>무작위로 특정 열에서 하나의 요소를 뽑아내기 위해, <code>sample()</code>를 동일하게 사용한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)
 <span class="kw">sample</span>(t, <span class="dv">1</span>)</code></pre></div>
-<pre><code>## [1] 1</code></pre>
+<pre><code>## [1] 5</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(t, <span class="dv">1</span>)</code></pre></div>
-<pre><code>## [1] 2</code></pre>
+<pre><code>## [1] 3</code></pre>
 <p>또한 runif() 모듈을 활용하여 정규분포, 지수분포, 감마분포 및 기타 연속형 분포에서 난수를 생성하는 함수도 제공된다.</p>
 </div>
 <div id="r-func-math" class="section level2">

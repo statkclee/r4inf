@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>R과 함께하는 정보 과학</title>
-  <meta name="description" content="R과 함께하는 정보 과학">
+  <title>데이터 과학 민주화</title>
+  <meta name="description" content="데이터 과학 민주화">
   <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
 
-  <meta property="og:title" content="R과 함께하는 정보 과학" />
+  <meta property="og:title" content="데이터 과학 민주화" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="statkclee/r4inf" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R과 함께하는 정보 과학" />
+  <meta name="twitter:title" content="데이터 과학 민주화" />
   
   
   
@@ -25,7 +25,7 @@
 <meta name="author" content="이광춘 - R Meetup 운영">
 
 
-<meta name="date" content="2018-02-05">
+<meta name="date" content="2018-02-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -109,7 +109,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.2" data-path="r-intro.html"><a href="r-intro.html#r-intro-hardware-architecture"><i class="fa fa-check"></i><b>1.2</b> 컴퓨터 하드웨어 아키텍처</a></li>
 <li class="chapter" data-level="1.3" data-path="r-intro.html"><a href="r-intro.html#r-intro-programming"><i class="fa fa-check"></i><b>1.3</b> 프로그래밍 이해하기</a></li>
 <li class="chapter" data-level="1.4" data-path="r-intro.html"><a href="r-intro.html#r-intro-word-sentence"><i class="fa fa-check"></i><b>1.4</b> 단어와 문장</a></li>
-<li class="chapter" data-level="1.5" data-path="r-intro.html"><a href="r-intro.html#r-intro-conversation"><i class="fa fa-check"></i><b>1.5</b> 파이썬과 대화하기</a></li>
+<li class="chapter" data-level="1.5" data-path="r-intro.html"><a href="r-intro.html#r-intro-conversation"><i class="fa fa-check"></i><b>1.5</b> R과 대화하기</a></li>
 <li class="chapter" data-level="1.6" data-path="r-intro.html"><a href="r-intro.html#r-intro-interpreter"><i class="fa fa-check"></i><b>1.6</b> 전문용어: 인터프리터와 컴파일러</a></li>
 <li class="chapter" data-level="1.7" data-path="r-intro.html"><a href="r-intro.html#r-intro-write-program"><i class="fa fa-check"></i><b>1.7</b> 프로그램 작성하기</a></li>
 <li class="chapter" data-level="1.8" data-path="r-intro.html"><a href="r-intro.html#r-intro-what-is-a-program"><i class="fa fa-check"></i><b>1.8</b> 프로그램이란 무엇인가?</a></li>
@@ -165,6 +165,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.13" data-path="r-func.html"><a href="r-func.html#-r-func-terminology"><i class="fa fa-check"></i><b>4.13</b> 용어정의 {r-func-terminology}</a></li>
 <li class="chapter" data-level="4.14" data-path="r-func.html"><a href="r-func.html#-r-func-ex"><i class="fa fa-check"></i><b>4.14</b> 연습문제 {r-func-ex}</a></li>
 </ul></li>
+<li class="chapter" data-level="5" data-path="r-iter.html"><a href="r-iter.html"><i class="fa fa-check"></i><b>5</b> 반복(Iteration)</a><ul>
+<li class="chapter" data-level="5.1" data-path="r-iter.html"><a href="r-iter.html#r-iter-update"><i class="fa fa-check"></i><b>5.1</b> 변수 갱신</a></li>
+<li class="chapter" data-level="5.2" data-path="r-iter.html"><a href="r-iter.html#while-r-iter-while"><i class="fa fa-check"></i><b>5.2</b> while문 {r-iter-while}</a></li>
+<li class="chapter" data-level="5.3" data-path="r-iter.html"><a href="r-iter.html#--r-iter-infinite-loop"><i class="fa fa-check"></i><b>5.3</b> 무한 루프 {r-iter-infinite-loop}</a></li>
+<li class="chapter" data-level="5.4" data-path="r-iter.html"><a href="r-iter.html#--break-r-iter-infinite-loop-break"><i class="fa fa-check"></i><b>5.4</b> 무한 반복과 <code>break</code> {r-iter-infinite-loop-break}</a></li>
+<li class="chapter" data-level="5.5" data-path="r-iter.html"><a href="r-iter.html#continue--r-iter-stop"><i class="fa fa-check"></i><b>5.5</b> <code>continue</code>로 반복 종료{r-iter-stop}</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/statkclee/r4inf" target="blank">작업 파일 원본(GitHub)</a></li>
 
@@ -177,7 +184,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R과 함께하는 정보 과학</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">데이터 과학 민주화</a>
           </h1>
         </div>
 
@@ -186,9 +193,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">R과 함께하는 정보 과학</h1>
+<h1 class="title">데이터 과학 민주화</h1>
 <h4 class="author"><em>이광춘 - R Meetup 운영</em></h4>
-<h4 class="date"><em>2018-02-05</em></h4>
+<h4 class="date"><em>2018-02-10</em></h4>
 </div>
 <div id="--joongang-yuval" class="section level1 unnumbered">
 <h1>기계와의 경쟁<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></h1>

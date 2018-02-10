@@ -185,7 +185,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.2" data-path="r-string.html"><a href="r-string.html#r-string-length"><i class="fa fa-check"></i><b>6.2</b> <code>length()</code> 함수 사용 문자열 길이 구하기</a></li>
 <li class="chapter" data-level="6.3" data-path="r-string.html"><a href="r-string.html#r-string-traversal"><i class="fa fa-check"></i><b>6.3</b> 루프를 사용한 문자열 운행법</a></li>
 <li class="chapter" data-level="6.4" data-path="r-string.html"><a href="r-string.html#r-string-slice"><i class="fa fa-check"></i><b>6.4</b> 문자열 슬라이스(slice)</a></li>
-<li class="chapter" data-level="6.5" data-path="r-string.html"><a href="r-string.html#r-string-invariance"><i class="fa fa-check"></i><b>6.5</b> 문자열은 불변이다.</a></li>
+<li class="chapter" data-level="6.5" data-path="r-string.html"><a href="r-string.html#r-string-count"><i class="fa fa-check"></i><b>6.5</b> 루프 돌기(looping) 계수(counting)</a></li>
+<li class="chapter" data-level="6.6" data-path="r-string.html"><a href="r-string.html#r-string-in-operator"><i class="fa fa-check"></i><b>6.6</b> <code>%in%</code> 연산자</a></li>
+<li class="chapter" data-level="6.7" data-path="r-string.html"><a href="r-string.html#r-string-comparison-operator"><i class="fa fa-check"></i><b>6.7</b> 문자열 비교</a></li>
+<li class="chapter" data-level="6.8" data-path="r-string.html"><a href="r-string.html#r-string-method"><i class="fa fa-check"></i><b>6.8</b> 문자열 함수</a></li>
+<li class="chapter" data-level="6.9" data-path="r-string.html"><a href="r-string.html#r-string-parsing"><i class="fa fa-check"></i><b>6.9</b> 문자열 파싱(Parsing)</a></li>
+<li class="chapter" data-level="6.10" data-path="r-string.html"><a href="r-string.html#r-string-format"><i class="fa fa-check"></i><b>6.10</b> 서식 연산자</a></li>
+<li class="chapter" data-level="6.11" data-path="r-string.html"><a href="r-string.html#r-string-debug"><i class="fa fa-check"></i><b>6.11</b> 디버깅</a></li>
+<li class="chapter" data-level="6.12" data-path="r-string.html"><a href="r-string.html#r-string-terminology"><i class="fa fa-check"></i><b>6.12</b> 용어정의</a></li>
+<li class="chapter" data-level="6.13" data-path="r-string.html"><a href="r-string.html#r-string-ex"><i class="fa fa-check"></i><b>6.13</b> 연습문제</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/statkclee/r4inf" target="blank">작업 파일 원본(GitHub)</a></li>
@@ -295,72 +303,195 @@ fruit_letter &lt;-<span class="st"> </span><span class="kw">strsplit</span>(frui
 <pre><code>## [1] &quot;a&quot; &quot;b&quot;</code></pre>
 <p>빈 문자열은 어떤 문자도 포함하지 않아서 길이가 0 이 되지만, 이것을 제외하고 다른 문자열과 동일하다.</p>
 </div>
-<div id="r-string-invariance" class="section level2">
-<h2><span class="header-section-number">6.5</span> 문자열은 불변이다.</h2>
-<p>문자열 내부에 있는 문자를 변경하려고 대입문 왼쪽편에 [] 연산자를 사용하고 싶은 유혹이 있을 것이다. 예를 들어 다음과 같다.</p>
-<p>이 경우 “객체(object)”는 문자열이고, 대입하고자 하는 문자는 “항목(item)”이다. 지금으로서 객체는 값과 동일하지만, 나중에 객체 정의를 좀더 상세화할 것이다. 항목은 순서 값 중의 하나다.</p>
-<p>오류 이유는 문자열은 불변(immutable)이기 때문이다. 따라서 기존 문자열을 변경할 수 없다는 의미다. 최선의 방법은 원래 문자열을 변형한 새로운 문자열을 생성하는 것이다.</p>
-<p>새로운 첫 문자에 greeting 문자열 슬라이스를 연결한다. 원래 문자열에는 어떤 영향도 주지 않는 새로운 문자열을 생성되었다.</p>
-<pre><code>루프 돌기(looping) 계수(counting)</code></pre>
+<div id="r-string-count" class="section level2">
+<h2><span class="header-section-number">6.5</span> 루프 돌기(looping) 계수(counting)</h2>
 <p>다음 프로그램은 문자열에 문자 a가 나타나는 횟수를 계수한다.</p>
-<p>상기 프로그램은 계수기(counter)라고 부르는 또다른 연산 패턴을 보여준다. 변수 count는 0 으로 초기화 되고, 매번 a를 찾을 때마다 증가한다. 루프를 빠져나갔을 때, count는 결과 값 즉, a가 나타난 총 횟수를 담고 있다.</p>
-<p>문자열과 문자를 인자(argument)로 받도록 상기 코드를 count라는 함수로 캡슐화(encapsulation)하고 일반화하세요.</p>
-<pre><code>in 연산자</code></pre>
-<p>연산자 in 은 불 연산자로 두 개의 문자열을 받아, 첫 번째 문자열이 두 번째 문자열의 일부이면 참(True)을 반환한다.</p>
-<pre><code>문자열 비교</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">word &lt;-<span class="st"> </span><span class="kw">strsplit</span>(<span class="st">&#39;banana&#39;</span>, <span class="st">&quot;&quot;</span>)
+count &lt;-<span class="st"> </span><span class="dv">0</span>
+for(letter in word[[<span class="dv">1</span>]]) {
+  if(letter ==<span class="st"> &#39;a&#39;</span>){
+    count &lt;-<span class="st"> </span>count +<span class="st"> </span><span class="dv">1</span>
+  }
+}
+
+count</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>상기 프로그램은 <strong>계수기(counter)</strong>라고 부르는 또다른 연산 패턴을 보여준다. 변수 count는 0 으로 초기화 되고, 매번 <code>a</code>를 찾을 때마다 증가한다. 루프를 빠져나갔을 때, <code>count</code>는 결과 값 즉, a가 나타난 총 횟수를 담고 있다.</p>
+<p><strong>연습문제</strong> : 문자열과 문자를 인자(argument)로 받도록 상기 코드를 <code>count</code>라는 함수로 <strong>캡슐화(encapsulation)</strong>하고 일반화하세요.</p>
+</div>
+<div id="r-string-in-operator" class="section level2">
+<h2><span class="header-section-number">6.6</span> <code>%in%</code> 연산자</h2>
+<p>연산자 <code>in</code> 은 부울 연산자로 두 개의 문자열을 받아, 첫 번째 문자열이 두 번째 문자열의 일부이면 참(TRUE)을 반환한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&#39;a&#39;</span> %in%<span class="st"> </span><span class="kw">strsplit</span>(<span class="st">&#39;banana&#39;</span>, <span class="st">&quot;&quot;</span>)[[<span class="dv">1</span>]]</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&#39;c&#39;</span> %in%<span class="st"> </span><span class="kw">strsplit</span>(<span class="st">&#39;banana&#39;</span>, <span class="st">&quot;&quot;</span>)[[<span class="dv">1</span>]]</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+<div id="r-string-comparison-operator" class="section level2">
+<h2><span class="header-section-number">6.7</span> 문자열 비교</h2>
 <p>비교 연산자도 문자열에서 동작한다. 두 문자열이 같은지를 살펴보다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">word &lt;-<span class="st"> &#39;banana&#39;</span>
+
+if(word ==<span class="st"> &#39;banana&#39;</span>) {
+  <span class="kw">print</span>(<span class="st">&#39;All right, bananas.&#39;</span>)
+}</code></pre></div>
+<pre><code>## [1] &quot;All right, bananas.&quot;</code></pre>
 <p>다른 비교 연산자는 단어를 알파벳 순서로 정렬하는데 유용하다.</p>
-<p>파이썬은 사람과 동일하는 방식으로 대문자와 소문자를 다루지 않는다. 모든 대문자는 소문자 앞에 온다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">word &lt;-<span class="st"> &#39;Pineapple&#39;</span>
+
+if(word &lt;<span class="st"> &#39;banana&#39;</span>) {
+  <span class="kw">cat</span>(<span class="st">&#39;Your word&#39;</span>,  word, <span class="st">&#39; comes before banana.&#39;</span>)
+} else if (word &gt;<span class="st"> &#39;banana&#39;</span>) {
+  <span class="kw">cat</span>(<span class="st">&#39;Your word&#39;</span>, word, <span class="st">&#39; comes after banana.&#39;</span>)
+} else {
+  <span class="kw">cat</span>(<span class="st">&#39;All right, bananas.&#39;</span>)
+}</code></pre></div>
+<pre><code>## Your word Pineapple  comes after banana.</code></pre>
 <p>이러한 문제를 다루는 일반적인 방식은 비교 연산을 수행하기 전에 문자열을 표준 포맷으로 예를 들어 모두 소문자, 변환하는 것입니다. 경우에 따라서 “Pineapple”로 무장한 사람들로부터 여러분을 보호해야하는 것을 명심하세요.</p>
-<pre><code>string 메쏘드</code></pre>
-<p>문자열은 파이썬 객체(objects)의 한 예다. 객체는 데이터(실제 문자열 자체)와 메쏘드(methods)를 담고 있다. 메쏘드는 객체에 내장되고 어떤 객체의 인스턴스(instance)에도 사용되는 사실상 함수다.</p>
-<p>객체에 대해 이용가능한 메쏘드를 보여주는 dir 함수가 파이썬에 있다. type 함수는 객체의 자료형(type)을 보여 주고, dir은 객체에 사용될 수 있는 메쏘드를 보여준다.</p>
-<p>dir 함수가 메쏘드 목록을 보여주고, 메쏘드에 대한 간단한 문서 정보는 help를 사용할 수 있지만, 문자열 메쏘드에 대한 좀더 좋은 문서 정보는 docs.python.org/library/string.html에서 찾을 수 있다.</p>
-<p>인자를 받고 값을 반환한다는 점에서 메쏘드(method)를 호출하는 것은 함수를 호출하는 것과 유사하지만, 구문은 다르다. 구분자로 점을 사용해서 변수명에 메쏘드명을 붙여 메쏘드를 호출한다.</p>
-<p>예를 들어, upper 메쏘드는 문자열을 받아 모두 대문자로 변환된 새로운 문자열을 반환한다.</p>
-<p>함수 구문 upper(word) 대신에, word.upper() 메쏘드 구문을 사용한다.</p>
-<p>이런 형태의 점 표기법은 메쏘드 이름(upper)과 메쏘드가 적용되는 문자열 이름(word)을 명세한다. 빈 괄호는 메쏘드가 인자가 없다는 것을 나타낸다.</p>
-<p>메쏘드를 부르는 것을 호출(invocation)이라고 부른다. 상기의 경우, word에 upper 메쏘드를 호출한다고 말한다.</p>
-<p>예를 들어, 문자열안에 문자열의 위치를 찾는 find라는 문자열 메쏘드가 있다.</p>
-<p>상기 예제에서, word 문자열의 find 메쏘드를 호출하여 매개 변수로 찾고자 하는 문자를 넘긴다.</p>
-<p>find 메쏘드는 문자뿐만 아니라 부속 문자열(substring)도 찾을 수 있다.</p>
-<p>두 번째 인자로 어디서 검색을 시작할지 인텍스를 넣을 수 있다.</p>
-<p>한 가지 자주 있는 작업은 strip 메쏘드를 사용해서 문자열 시작과 끝의 공백(공백 여러개, 탭, 새줄)을 제거하는 것이다.</p>
-<p>startswith 메쏘드는 참, 거짓 같은 불 값(boolean value)을 반환한다.</p>
-<p>startswith가 대소문자를 구별하는 것을 요구하기 때문에 lower 메쏘드를 사용해서 검증을 수행하기 전에, 한 줄을 입력받아 모두 소문자로 변환하는 것이 필요하다.</p>
-<p>마지막 예제에서 문자열이 문자 “p”로 시작하는지를 검증하기 위해서, lower 메쏘드를 호출하고 나서 바로 startswith 메쏘드를 사용한다. 주의깊게 순서만 다룬다면, 한 줄에 다수 메쏘드를 호출할 수 있다.</p>
-<p>앞선 예제와 유사한 함수인 count로 불리는 문자열 메쏘드가 있다. docs.python.org/library/string.html에서 count 메쏘드에 대한 문서를 읽고, 문자열 ’banana’의 문자가 몇 개인지 계수하는 메쏘드 호출 프로그램을 작성하세요.</p>
-<pre><code>문자열 파싱(Parsing)</code></pre>
+</div>
+<div id="r-string-method" class="section level2">
+<h2><span class="header-section-number">6.8</span> 문자열 함수</h2>
+<p>R은 객체지향언어의 특성을 갖고 있지만 함수형 프로그래밍 언어의 특성도 갖고 있다. 문자열을 R 객체(objects)로 객체를 데이터(실제 문자열 자체)와 메쏘드(methods)를 담고 있는 것으로 바라볼 수도 있다. 메쏘드는 객체에 내장되고 어떤 객체의 인스턴스(instance)에도 사용되는 사실상 함수다.</p>
+<p>하지만, 함수형 프로그래밍 패러다임으로 문자열을 객체로 두고 함수를 적용시켜 다양한 작업을 하는 것이 일반적이다. <code>tidyverse</code> 팩키지를 설치하게 되면 <code>stringr</code> 팩키지가 구성요소로 포함되어 있다. <code>str_</code>로 시작되는 다양한 함수가 지원된다.</p>
+<p>예를 들어, <code>stringr</code> 팩키지 <code>str_to_upper()</code> 함수는 문자열을 받아 모두 대문자로 변환된 새로운 문자열을 반환한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(stringr)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;stringr&#39;</code></pre>
+<pre><code>## The following objects are masked _by_ &#39;.GlobalEnv&#39;:
+## 
+##     fruit, words</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">word &lt;-<span class="st"> &#39;banana&#39;</span>
+new_word &lt;-<span class="st"> </span>stringr::<span class="kw">str_to_upper</span>(word)
+new_word  </code></pre></div>
+<pre><code>## [1] &quot;BANANA&quot;</code></pre>
+<p>동일한 작업을 함수형 패러다임으로 <code>str_to_upper(word)</code>와 같이 표현하는데 반해, 객체지향으로 구현하면 파이썬 같은 경우 <code>word.upper()</code> 메쏘드 구문이 사용된다.</p>
+<p>예를 들어, 문자열안에 문자열의 위치를 찾는 <code>str_locate()</code>, <code>str_locate_all()</code>라는 문자열 함수가 있다. <code>str_locate()</code>는 매칭되는 첫번째만 반환하는 반면에 <code>str_locate_all()</code>는 매칭되는 전부를 반환하는 차이가 있다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_locate</span>(word, <span class="st">&#39;a&#39;</span>)</code></pre></div>
+<pre><code>##      start end
+## [1,]     2   2</code></pre>
+<p>상기 예제에서, word 문자열에 <code>str_locate_all()</code> 함수를 호출하여 매개 변수로 찾고자 하는 문자를 넘긴다.</p>
+<p><code>str_locate_all()</code> 함수로 문자뿐만 아니라 부속 문자열(substring)도 찾을 수 있다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_locate_all</span>(word, <span class="st">&#39;na&#39;</span>)</code></pre></div>
+<pre><code>## [[1]]
+##      start end
+## [1,]     3   4
+## [2,]     5   6</code></pre>
+<p>한 가지 자주 있는 작업은 <code>str_trim()</code> 함수를 사용해서 문자열 시작과 끝의 공백(공백 여러개, 탭, 새줄)을 제거하는 것이다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">line &lt;-<span class="st"> &#39;     Here we go &#39;</span>
+<span class="kw">str_trim</span>(line)</code></pre></div>
+<pre><code>## [1] &quot;Here we go&quot;</code></pre>
+<p><code>str_detect()</code> 함수와 나중에 다룰 정규표현식을 섞어 표현하게 되면 참, 거짓 같은 부울 값(boolean value)을 반환한다. <code>'^Please'</code>에서 <code>^</code>은 문자열 시작을 지정한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">line &lt;-<span class="st"> &#39;Please have a nice day&#39;</span>
+<span class="kw">str_detect</span>(line, <span class="st">&#39;^Please&#39;</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>대소문자를 구별하는 것을 요구하기 때문에 <code>str_to_lower()</code> 함수를 사용해서 검증을 수행하기 전에, 한 줄을 입력받아 모두 소문자로 변환하는 것이 필요하다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">line &lt;-<span class="st"> &#39;Please have a nice day&#39;</span>
+<span class="kw">str_detect</span>(line, <span class="st">&#39;^p&#39;</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_to_lower</span>(line)</code></pre></div>
+<pre><code>## [1] &quot;please have a nice day&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_detect</span>(<span class="kw">str_to_lower</span>(line), <span class="st">&#39;^p&#39;</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>마지막 예제에서 문자열이 문자 “p”로 시작하는지를 검증하기 위해서, <code>str_to_lower()</code> 함수를 호출하고 나서 바로 <code>str_detect()</code> 함수를 사용한다. 주의깊게 순서만 다룬다면, 한 줄에 다수 함수를 괄호에 넣어 호출할 수 있다.</p>
+<p><strong>연습문제:</strong> 앞선 예제와 유사한 함수인 <code>str_count()</code>로 불리는 문자열 메쏘드가 <code>stringr</code> 팩키지 내부에 있다. <code>? str_count()</code> 도움말로 <code>str_count()</code> 함수에 대한 문서를 읽고, 문자열 ’banana’의 문자가 몇 개인지 계수하는 메쏘드 호출 프로그램을 작성하세요.</p>
+</div>
+<div id="r-string-parsing" class="section level2">
+<h2><span class="header-section-number">6.9</span> 문자열 파싱(Parsing)</h2>
 <p>종종, 문자열을 들여다 보고 특정 부속 문자열(substring)을 찾고 싶다. 예를 들어, 아래와 같은 형식으로 작성된 일련의 라인이 주어졌다고 가정하면,</p>
-<p>From <a href="mailto:stephen.marquard@uct.ac.za">stephen.marquard@uct.ac.za</a> Sat Jan 5 09:14:16 2008 각 라인마다 뒤쪽 전자우편 주소(즉, uct.ac.za)만 뽑아내고 싶을 것이다. find 메쏘드와 문자열 슬라이싱(string sliceing)을 사용해서 작업을 수행할 수 있다.</p>
-<p>우선, 문자열에서 골뱅이(@, at-sign) 기호의 위치를 찾는다. 그리고, 골뱅이 기호 뒤 첫 공백 위치를 찾는다. 그리고 나서, 찾고자 하는 부속 문자열을 뽑아내기 위해서 문자열 슬라이싱을 사용한다.</p>
-<p>find 메쏘드를 사용해서 찾고자 하는 문자열의 시작 위치를 명세한다. 문자열 슬라이싱(slicing)할 때, 골뱅기 기호 뒤부터 빈 공백을 포함하지 않는 위치까지 문자열을 뽑아낸다.</p>
-<p>find 메쏘드에 대한 문서는 docs.python.org/library/string.html에서 참조 가능하다.</p>
-<pre><code>서식 연산자</code></pre>
-<p>서식 연산자(format operator), 는 문자열 일부를 변수에 저장된 값으로 바꿔 문자열을 구성한다. 정수에 서식 연산자가 적용될 때, 는 나머지 연산자가 된다. 하지만 첫 피연산자가 문자열이면, 은 서식 연산자가 된다.</p>
-<p>첫 피연산자는 서식 문자열 format string로 두번째 피연산자가 어떤 형식으로 표현되는지를 명세하는 하나 혹은 그 이상의 서식 순서 format sequence를 담고 있다. 결과값은 문자열이다.</p>
+<p><code>From stephen.marquard@</code><strong>uct.ac.za</strong><code>Sat Jan  5 09:14:16 2008</code></p>
+<p>각 라인마다 뒤쪽 전자우편 주소(즉, uct.ac.za)만 뽑아내고 싶을 것이다. <code>str_locate()</code> 함수와 문자열 슬라이싱(string sliceing)을 사용해서 작업을 수행할 수 있다.</p>
+<p>우선, 문자열에서 골뱅이(<code>@</code>, at-sign) 기호의 위치를 찾는다. 그리고, 골뱅이 기호 뒤 첫 공백 위치를 찾는다. 그리고 나서, 찾고자 하는 부속 문자열을 뽑아내기 위해서 문자열 슬라이싱을 사용한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> &#39;From stephen.marquard@uct.ac.za Sat Jan 5 09:14:16 2008&#39;</span>
+atpos &lt;-<span class="st"> </span><span class="kw">str_locate</span>(data, <span class="st">&#39;@&#39;</span>)
+atpos</code></pre></div>
+<pre><code>##      start end
+## [1,]    22  22</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sppos &lt;-<span class="st"> </span><span class="kw">str_locate_all</span>(data, <span class="st">&#39; &#39;</span>)
+sppos</code></pre></div>
+<pre><code>## [[1]]
+##      start end
+## [1,]     5   5
+## [2,]    32  32
+## [3,]    36  36
+## [4,]    40  40
+## [5,]    42  42
+## [6,]    51  51</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_sub</span>(data, <span class="dt">start=</span>atpos[<span class="dv">1</span>,<span class="dv">1</span>]+<span class="dv">1</span>, <span class="dt">end=</span>sppos[[<span class="dv">1</span>]][<span class="dv">2</span>,<span class="dv">2</span>]-<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] &quot;uct.ac.za&quot;</code></pre>
+<p><code>str_locate()</code> 함수를 사용해서 찾고자 하는 문자열의 시작 위치를 명세한다. 문자열 슬라이싱(slicing)할 때, 골뱅기 기호 뒤부터 빈 공백을 포함하지 않는 위치까지 문자열을 뽑아낸다.</p>
+</div>
+<div id="r-string-format" class="section level2">
+<h2><span class="header-section-number">6.10</span> 서식 연산자</h2>
+<p><strong>서식 연산자(format operator)</strong> Base R의 <code>sprintf()</code> 함수에 C언어 스타일로 <code>%</code>를 사용하기도 하지만 <a href="https://cran.r-project.org/web/packages/glue/index.html">glue: Interpreted String Literals</a> 팩키지도 최근에 많이 사용된다. glue 팩키지 <code>{}</code>는 문자열 일부를 변수에 저장된 값으로 바꿔 문자열을 구성한다. 정수에 서식 연산자가 적용될 때, {}는 나머지 연산자가 된다. 하지만 첫 피연산자가 문자열이면, {}은 서식 연산자가 된다.</p>
+<p>첫 피연산자는 서식 문자열(format string)로 두번째 피연산자가 어떤 형식으로 표현되는지를 명세하는 하나 혹은 그 이상의 서식 순서(format sequence)를 담고 있다. 결과값은 문자열이다.</p>
 <p>예를 들어, 형식 순서 ’%d’의 의미는 두번째 피연산자가 정수 형식으로 표현됨을 뜻한다. (d는 “decimal”을 나타낸다.)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">camels &lt;-<span class="st"> </span><span class="dv">42</span>
+<span class="kw">sprintf</span>(<span class="st">&#39;%d&#39;</span>, camels)</code></pre></div>
+<pre><code>## [1] &quot;42&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">glue::<span class="kw">glue</span>(<span class="st">&quot;{camels}&quot;</span>)</code></pre></div>
+<pre><code>## 42</code></pre>
 <p>결과는 문자열 ’42’로 정수 42와 혼동하면 안 된다.</p>
 <p>서식 순서는 문자열 어디에도 나타날 수 있어서 문장 중간에 값을 임베드(embed)할 수 있다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">camels &lt;-<span class="st"> </span><span class="dv">42</span>
+<span class="kw">sprintf</span>(<span class="st">&#39;I have spotted %d camels.&#39;</span>, camels)</code></pre></div>
+<pre><code>## [1] &quot;I have spotted 42 camels.&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">glue::<span class="kw">glue</span>(<span class="st">&#39;I have spotted {camels} camels.&#39;</span>)</code></pre></div>
+<pre><code>## I have spotted 42 camels.</code></pre>
 <p>만약 문자열 서식 순서가 하나 이상이라면, 두번째 인자는 튜플(tuple)이 된다. 서식 순서 각각은 순서대로 튜플 요소와 매칭된다.</p>
 <p>다음 예제는 정수 형식을 표현하기 위해서 ‘%d’, 부동 소수점 형식을 표현하기 위해서 ‘%g’, 문자열 형식을 표현하기 위해서 ‘%s’을 사용한 사례다. 여기서 왜 부동 소수점 형식이’%f’대신에 ’%g’인지는 질문하지 말아주세요.</p>
-<p>튜플 요소 숫자는 문자열 서식 순서의 숫자와 일치해야 하고, 요소의 자료형(type)도 서식 순서와 일치해야 한다.</p>
-<p>상기 첫 예제는 충분한 요소 개수가 되지 않고, 두 번째 예제는 자료형이 맞지 않는다.</p>
-<p>서식 연산자는 강력하지만, 사용하기가 어럽다. 더 많은 정보는 docs.python.org/lib/typesseq-strings.html에서 찾을 수 있다.</p>
-<pre><code>디버깅</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>camels &lt;-<span class="st"> </span><span class="dv">42</span>
+&gt;<span class="st"> </span><span class="kw">glue</span>(<span class="st">&#39;I have spotted {camels} camels.&#39;</span>)
+I have spotted <span class="dv">42</span> camels.
+&gt;<span class="st"> </span><span class="kw">sprintf</span>(<span class="st">&#39;I have spotted %d camels &amp; %d camels&#39;</span>, camels)
+Error in <span class="kw">sprintf</span>(<span class="st">&quot;I have spotted %d camels &amp; %d camels&quot;</span>, camels) :<span class="st"> </span>
+<span class="st">  </span>too few arguments
+&gt;<span class="st"> </span>camels &lt;-<span class="st"> &quot;king&quot;</span>
+&gt;<span class="st"> </span><span class="kw">sprintf</span>(<span class="st">&#39;I have spotted %d camels.&#39;</span>, camels)
+Error in <span class="kw">sprintf</span>(<span class="st">&quot;I have spotted %d camels.&quot;</span>, camels) :<span class="st"> </span>
+<span class="st">  </span>invalid format <span class="st">&#39;%d&#39;</span>; use format %s for character objects</code></pre></div>
+<p>문자열 서식 순서와 갯수는 일치해야 하고, 요소의 자료형(type)도 서식 순서와 일치해야 한다.</p>
+<p>상기 첫 예제는 충분한 요소 개수가 되지 않고, 두 번째 예제는 자료형이 맞지 않는다. 서식 연산자는 강력하지만, 사용하기가 까다로운 점이 있으니, <code>glue</code>를 사용하는 것도 권장된다.</p>
+</div>
+<div id="r-string-debug" class="section level2">
+<h2><span class="header-section-number">6.11</span> 디버깅</h2>
 <p>프로그램을 작성하면서 배양해야 하는 기술은 항상 자신에게 질문을 하는 것이다. “여기서 무엇이 잘못 될 수 있을까?” 혹은 “내가 작성한 완벽한 프로그램을 망가뜨리기 위해 사용자는 무슨 엄청난 일을 할 것인가?”</p>
 <p>예를 들어 앞장의 반복 while 루프를 시연하기 위해 사용한 프로그램을 살펴봅시다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">while(<span class="ot">TRUE</span>) {
+  line &lt;-<span class="st"> </span><span class="kw">readline</span>(<span class="dt">prompt =</span> <span class="st">&#39;&gt; &#39;</span>)
+  if(<span class="kw">substr</span>(line,<span class="dv">1</span>,<span class="dv">1</span>) ==<span class="st"> &quot;#&quot;</span>) {
+    next
+  }
+  if(line ==<span class="st"> &#39;done&#39;</span>) {
+    break
+  }
+  <span class="kw">print</span>(line)
+}</code></pre></div>
 <p>사용자가 입력값으로 빈 공백 줄을 입력하게 될 때 무엇이 발생하는지 살펴봅시다.</p>
-<p>빈 공백줄이 입력될 때까지 코드는 잘 작동합니다. 그리고 나서, 0 번째 문자가 없어서 트레이스백(traceback)이 발생한다. 입력줄이 비어있을 때, 코드 3번째 줄을 “안전”하게 만드는 두 가지 방법이 있다.</p>
-<p>하나는 빈 문자열이면 거짓(False)을 반환하도록 startswith 메쏘드를 사용하는 것이다.</p>
-<p>가디언 패턴(guardian pattern)을 사용한 if문으로 문자열에 적어도 하나의 문자가 있는 경우만 두번째 논리 표현식이 평가되도록 코드를 작성한다.</p>
-<pre><code>용어정의</code></pre>
-<p>[계수기(counter):] 무언가를 계수하기 위해서 사용되는 변수로 일반적으로 0 으로 초기화하고 나서 증가한다. [빈 문자열(empty string):] 두 인용부호로 표현되고, 어떤 문자도 없고 길이가 0 인 문자열. [서식 연산자(format operator):] 서식 문자열과 튜플을 받아, 서식 문자열에 지정된 서식으로 튜플 요소를 포함하는 문자열을 생성하는 연산자, . [서식 순서(format sequence):] d처럼 어떤 값의 서식으로 표현되어야 하는지를 명세하는 “서식 문자열” 문자 순서. [서식 문자열(format string):] 서식 순서를 포함하는 서식 연산자와 함께 사용되는 문자열. [플래그(flag):] 조건이 참인지를 표기하기 위해 사용하는 불 변수(boolean variable) [호출(invocation):] 메쏘드를 호출하는 명령문. [불변(immutable):] 순서의 항목에 대입할 수 없는 특성. [인덱스(index):] 문자열의 문자처럼 순서(sequence)에 항목을 선택하기 위해 사용되는 정수 값. [항목(item):] 순서에 있는 값의 하나. [메쏘드(method):] 객체와 연관되어 점 표기법을 사용하여 호출되는 함수. [객체(object):] 변수가 참조하는 무엇. 지금은 “객체”와 “값”을 구별없이 사용한다. [검색(search):] 찾고자 하는 것을 찾았을 때 멈추는 운행법 패턴. [순서(sequence):] 정돈된 집합. 즉, 정수 인텍스로 각각의 값이 확인되는 값의 집합. [슬라이스(slice):] 인텍스 범위로 지정되는 문자열 부분. [운행법(traverse):] 순서(sequence)의 항목을 반복적으로 훑기, 각각에 대해서는 동일한 연산을 수행.</p>
-<pre><code>연습문제</code></pre>
-<p>다음 문자열을 파이썬 코드를 작성하세요.</p>
-<p>str = ‘X-DSPAM-Confidence: 0.8475’ find 메쏘드와 문자열 슬라이싱을 사용하여 콜론(:) 문자 뒤 문자열을 뽑아내고 float 함수를 사용하여 뽑아낸 문자열을 부동 소수점 숫자로 변환하세요.</p>
-<p><a href="https://docs.python.org/2.7/library/stdtypes.html#string-methods에서" class="uri">https://docs.python.org/2.7/library/stdtypes.html#string-methods에서</a> 문자열 메쏘드 문서를 읽어보세요. 어떻게 동작하는가를 이해도를 확인하기 위해서 몇개를 골라 실험을 해보세요. strip과 replace가 특히 유용합니다.</p>
-<p>문서는 좀 혼동스러울 수 있는 구문을 사용합니다. 예를 들어, find(sub[, start[, end]])의 꺾쇠기호는 선택(옵션) 인수를 나타냅니다. 그래서, sub은 필수지만, start은 선택 사항이고, 만약 start가 인자로 포함된다면, end는 선택이 된다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>hello there
+[<span class="dv">1</span>] hello there
+&gt;<span class="st"> </span><span class="co"># don&#39;t print this</span>
+<span class="er">&gt;</span><span class="st"> </span>print this!
+[<span class="dv">2</span>] print this!
+<span class="er">&gt;</span><span class="st"> </span>
+[<span class="dv">1</span>] <span class="st">&quot;&quot;</span>
+&gt;<span class="st"> </span>done</code></pre></div>
+<p>빈 공백줄이 입력될 때까지 코드는 잘 작동합니다. 그리고 나서, 파이썬의 경우 0 번째 문자가 없어서 트레이스백(traceback)이 발생한다. R의 경우 정상 실행되지만 원하는 바는 아니다. 입력줄이 비어있을 때, 코드 3번째 줄을 “안전”하게 만드는 두 가지 방법이 있다.</p>
+<p>하나는 빈 문자열이면 거짓(FALSE)을 반환하도록 <code>str_detect()</code> 함수를 사용하는 것이다.</p>
+<p><code>if(str_detect(line, '^#'))</code></p>
+<p><strong>가디언 패턴(guardian pattern)</strong>을 사용한 <code>if</code>문으로 문자열에 적어도 하나의 문자가 있는 경우만 두번째 논리 표현식이 평가되도록 코드를 작성한다.</p>
+<p><code>if(str_length(line) &gt; 0 &amp; str_detect(line, '^#'))</code></p>
+</div>
+<div id="r-string-terminology" class="section level2">
+<h2><span class="header-section-number">6.12</span> 용어정의</h2>
+<p><strong>계수기(counter)</strong>: 무언가를 계수하기 위해서 사용되는 변수로 일반적으로 0 으로 초기화하고 나서 증가한다. <strong>빈 문자열(empty string)</strong>: 두 인용부호로 표현되고, 어떤 문자도 없고 길이가 0 인 문자열. <strong>서식 연산자(format operator)</strong>: 서식 문자열과 튜플을 받아, 서식 문자열에 지정된 서식으로 튜플 요소를 포함하는 문자열을 생성하는 연산자, . <strong>서식 순서(format sequence)</strong>: d처럼 어떤 값의 서식으로 표현되어야 하는지를 명세하는 “서식 문자열” 문자 순서. <strong>서식 문자열(format string)</strong>: 서식 순서를 포함하는 서식 연산자와 함께 사용되는 문자열. <strong>플래그(flag)</strong>: 조건이 참인지를 표기하기 위해 사용하는 불 변수(boolean variable) <strong>호출(invocation)</strong>: 메쏘드를 호출하는 명령문. <strong>불변(immutable)</strong>: 순서의 항목에 대입할 수 없는 특성. <strong>인덱스(index)</strong>: 문자열의 문자처럼 순서(sequence)에 항목을 선택하기 위해 사용되는 정수 값. <strong>항목(item)</strong>: 순서에 있는 값의 하나. <strong>메쏘드(method)</strong>: 객체와 연관되어 점 표기법을 사용하여 호출되는 함수. <strong>객체(object)</strong>: 변수가 참조하는 무엇. 지금은 “객체”와 “값”을 구별없이 사용한다. <strong>검색(search)</strong>: 찾고자 하는 것을 찾았을 때 멈추는 운행법 패턴. <strong>순서(sequence)</strong>: 정돈된 집합. 즉, 정수 인텍스로 각각의 값이 확인되는 값의 집합. <strong>슬라이스(slice)</strong>: 인텍스 범위로 지정되는 문자열 부분. <strong>운행법(traverse)</strong>: 순서(sequence)의 항목을 반복적으로 훑기, 각각에 대해서는 동일한 연산을 수행.</p>
+</div>
+<div id="r-string-ex" class="section level2">
+<h2><span class="header-section-number">6.13</span> 연습문제</h2>
+<ol style="list-style-type: decimal">
+<li>다음 문자열에서 숫자를 뽑아내는 R 코드로 작성하세요.</li>
+</ol>
+<p><code>str &lt;- 'X-DSPAM-Confidence: 0.8475'</code></p>
+<p><code>str_locate()</code> 함수와 문자열 슬라이싱을 사용하여 <code>str_sub()</code> 문자 뒤 문자열을 뽑아내고 <code>as.numeric()</code> 함수를 사용하여 뽑아낸 문자열을 부동 소수점 숫자로 변환하세요.</p>
 
 <div id="refs" class="references">
 

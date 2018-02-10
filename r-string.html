@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>데이터 과학 민주화</title>
+  <meta name="description" content="데이터 과학 민주화">
+  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+
+  <meta property="og:title" content="데이터 과학 민주화" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="statkclee/r4inf" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="데이터 과학 민주화" />
+  
+  
+  
+
+<meta name="author" content="이광춘 - R Meetup 운영">
+
+
+<meta name="date" content="2018-02-10">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="r-iter.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">땅, 자본, 데이터</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>기계와의 경쟁</a></li>
+<li class="chapter" data-level="1" data-path="r-intro.html"><a href="r-intro.html"><i class="fa fa-check"></i><b>1</b> 왜 프로그래밍을 배워야 하는가?</a><ul>
+<li class="chapter" data-level="1.1" data-path="r-intro.html"><a href="r-intro.html#r-intro-motivation"><i class="fa fa-check"></i><b>1.1</b> 창의성과 동기</a></li>
+<li class="chapter" data-level="1.2" data-path="r-intro.html"><a href="r-intro.html#r-intro-hardware-architecture"><i class="fa fa-check"></i><b>1.2</b> 컴퓨터 하드웨어 아키텍처</a></li>
+<li class="chapter" data-level="1.3" data-path="r-intro.html"><a href="r-intro.html#r-intro-programming"><i class="fa fa-check"></i><b>1.3</b> 프로그래밍 이해하기</a></li>
+<li class="chapter" data-level="1.4" data-path="r-intro.html"><a href="r-intro.html#r-intro-word-sentence"><i class="fa fa-check"></i><b>1.4</b> 단어와 문장</a></li>
+<li class="chapter" data-level="1.5" data-path="r-intro.html"><a href="r-intro.html#r-intro-conversation"><i class="fa fa-check"></i><b>1.5</b> R과 대화하기</a></li>
+<li class="chapter" data-level="1.6" data-path="r-intro.html"><a href="r-intro.html#r-intro-interpreter"><i class="fa fa-check"></i><b>1.6</b> 전문용어: 인터프리터와 컴파일러</a></li>
+<li class="chapter" data-level="1.7" data-path="r-intro.html"><a href="r-intro.html#r-intro-write-program"><i class="fa fa-check"></i><b>1.7</b> 프로그램 작성하기</a></li>
+<li class="chapter" data-level="1.8" data-path="r-intro.html"><a href="r-intro.html#r-intro-what-is-a-program"><i class="fa fa-check"></i><b>1.8</b> 프로그램이란 무엇인가?</a></li>
+<li class="chapter" data-level="1.9" data-path="r-intro.html"><a href="r-intro.html#r-intro-program-component"><i class="fa fa-check"></i><b>1.9</b> 프로그램 구성요소</a></li>
+<li class="chapter" data-level="1.10" data-path="r-intro.html"><a href="r-intro.html#r-intro-bug"><i class="fa fa-check"></i><b>1.10</b> 프로그램이 잘못되면?</a></li>
+<li class="chapter" data-level="1.11" data-path="r-intro.html"><a href="r-intro.html#r-intro-journey"><i class="fa fa-check"></i><b>1.11</b> 학습으로의 여정</a></li>
+<li class="chapter" data-level="1.12" data-path="r-intro.html"><a href="r-intro.html#r-intro-terminology"><i class="fa fa-check"></i><b>1.12</b> 용어사전</a></li>
+<li class="chapter" data-level="1.13" data-path="r-intro.html"><a href="r-intro.html#r-intro-exercise"><i class="fa fa-check"></i><b>1.13</b> 연습문제</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-var.html"><a href="r-var.html"><i class="fa fa-check"></i><b>2</b> 변수, 표현식, 문장(Statement)</a><ul>
+<li class="chapter" data-level="2.1" data-path="r-var.html"><a href="r-var.html#r-var-value-type"><i class="fa fa-check"></i><b>2.1</b> 값(Value)과 자료형(Type)</a></li>
+<li class="chapter" data-level="2.2" data-path="r-var.html"><a href="r-var.html#r-var-variable"><i class="fa fa-check"></i><b>2.2</b> 변수(Variable)</a></li>
+<li class="chapter" data-level="2.3" data-path="r-var.html"><a href="r-var.html#r-var-keywords"><i class="fa fa-check"></i><b>2.3</b> 변수명(Variable name)과 예약어(keywords)</a></li>
+<li class="chapter" data-level="2.4" data-path="r-var.html"><a href="r-var.html#r-var-statement"><i class="fa fa-check"></i><b>2.4</b> 문장(Statement)</a></li>
+<li class="chapter" data-level="2.5" data-path="r-var.html"><a href="r-var.html#r-var-operator"><i class="fa fa-check"></i><b>2.5</b> 연산자(Operator)와 피연산자(Operands)</a></li>
+<li class="chapter" data-level="2.6" data-path="r-var.html"><a href="r-var.html#r-var-expression"><i class="fa fa-check"></i><b>2.6</b> 표현식(Expression)</a></li>
+<li class="chapter" data-level="2.7" data-path="r-var.html"><a href="r-var.html#r-var-order-operations"><i class="fa fa-check"></i><b>2.7</b> 연산자 적용 우선순위 (Order of Operations)</a></li>
+<li class="chapter" data-level="2.8" data-path="r-var.html"><a href="r-var.html#r-var-modular"><i class="fa fa-check"></i><b>2.8</b> 나머지 연산자 (Modulus Operator)</a></li>
+<li class="chapter" data-level="2.9" data-path="r-var.html"><a href="r-var.html#r-var-string-operator"><i class="fa fa-check"></i><b>2.9</b> 문자열 연산자 (String Operator)</a></li>
+<li class="chapter" data-level="2.10" data-path="r-var.html"><a href="r-var.html#r-var-input"><i class="fa fa-check"></i><b>2.10</b> 사용자에게서 입력값 받기</a></li>
+<li class="chapter" data-level="2.11" data-path="r-var.html"><a href="r-var.html#r-var-comment"><i class="fa fa-check"></i><b>2.11</b> 주석</a></li>
+<li class="chapter" data-level="2.12" data-path="r-var.html"><a href="r-var.html#r-var-name"><i class="fa fa-check"></i><b>2.12</b> 연상되는 변수명 만들기</a></li>
+<li class="chapter" data-level="2.13" data-path="r-var.html"><a href="r-var.html#r-var-debug"><i class="fa fa-check"></i><b>2.13</b> 디버깅(Debugging)</a></li>
+<li class="chapter" data-level="2.14" data-path="r-var.html"><a href="r-var.html#r-var-terminology"><i class="fa fa-check"></i><b>2.14</b> 용어 설명</a></li>
+<li class="chapter" data-level="2.15" data-path="r-var.html"><a href="r-var.html#r-var-ex"><i class="fa fa-check"></i><b>2.15</b> 연습문제</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-cont.html"><a href="r-cont.html"><i class="fa fa-check"></i><b>3</b> 조건부 실행</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-cont.html"><a href="r-cont.html#r-cont-boolean"><i class="fa fa-check"></i><b>3.1</b> 부울 표현식(Boolean expressions)</a></li>
+<li class="chapter" data-level="3.2" data-path="r-cont.html"><a href="r-cont.html#r-cont-logical-operator"><i class="fa fa-check"></i><b>3.2</b> 논리 연산자</a></li>
+<li class="chapter" data-level="3.3" data-path="r-cont.html"><a href="r-cont.html#r-cont-run"><i class="fa fa-check"></i><b>3.3</b> 조건문 실행</a></li>
+<li class="chapter" data-level="3.4" data-path="r-cont.html"><a href="r-cont.html#r-cont-alternative"><i class="fa fa-check"></i><b>3.4</b> 대안 실행</a></li>
+<li class="chapter" data-level="3.5" data-path="r-cont.html"><a href="r-cont.html#r-cont-chained"><i class="fa fa-check"></i><b>3.5</b> 연쇄 조건문</a></li>
+<li class="chapter" data-level="3.6" data-path="r-cont.html"><a href="r-cont.html#r-cont-nested"><i class="fa fa-check"></i><b>3.6</b> 중첩 조건문</a></li>
+<li class="chapter" data-level="3.7" data-path="r-cont.html"><a href="r-cont.html#r-cont-try-catch"><i class="fa fa-check"></i><b>3.7</b> try와 catch를 활용한 예외 처리</a></li>
+<li class="chapter" data-level="3.8" data-path="r-cont.html"><a href="r-cont.html#r-cont-short-circuit"><i class="fa fa-check"></i><b>3.8</b> 논리 연산식의 단락(Short circuit) 평가</a></li>
+<li class="chapter" data-level="3.9" data-path="r-cont.html"><a href="r-cont.html#r-cont-debugging"><i class="fa fa-check"></i><b>3.9</b> 디버깅(Debugging)</a></li>
+<li class="chapter" data-level="3.10" data-path="r-cont.html"><a href="r-cont.html#r-cont-terminology"><i class="fa fa-check"></i><b>3.10</b> 용어 정의</a></li>
+<li class="chapter" data-level="3.11" data-path="r-cont.html"><a href="r-cont.html#r-cont-ex"><i class="fa fa-check"></i><b>3.11</b> 연습문제</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-func.html"><a href="r-func.html"><i class="fa fa-check"></i><b>4</b> 함수</a><ul>
+<li class="chapter" data-level="4.1" data-path="r-func.html"><a href="r-func.html#r-func-call"><i class="fa fa-check"></i><b>4.1</b> 함수 호출</a></li>
+<li class="chapter" data-level="4.2" data-path="r-func.html"><a href="r-func.html#r-func-builtin"><i class="fa fa-check"></i><b>4.2</b> 내장(Built-in) 함수</a></li>
+<li class="chapter" data-level="4.3" data-path="r-func.html"><a href="r-func.html#r-func-type"><i class="fa fa-check"></i><b>4.3</b> 자료형(type) 변환 함수</a></li>
+<li class="chapter" data-level="4.4" data-path="r-func.html"><a href="r-func.html#r-func-random-number"><i class="fa fa-check"></i><b>4.4</b> 난수(Random numbers)</a></li>
+<li class="chapter" data-level="4.5" data-path="r-func.html"><a href="r-func.html#r-func-math"><i class="fa fa-check"></i><b>4.5</b> 수학 함수</a></li>
+<li class="chapter" data-level="4.6" data-path="r-func.html"><a href="r-func.html#r-func-new-function"><i class="fa fa-check"></i><b>4.6</b> 신규 함수 추가</a></li>
+<li class="chapter" data-level="4.7" data-path="r-func.html"><a href="r-func.html#r-func-how-to-use"><i class="fa fa-check"></i><b>4.7</b> 함수 정의와 사용법</a></li>
+<li class="chapter" data-level="4.8" data-path="r-func.html"><a href="r-func.html#r-func-control"><i class="fa fa-check"></i><b>4.8</b> 실행 흐름</a></li>
+<li class="chapter" data-level="4.9" data-path="r-func.html"><a href="r-func.html#r-func-parameter-argument"><i class="fa fa-check"></i><b>4.9</b> 매개 변수(parameter)와 인수(argument)</a></li>
+<li class="chapter" data-level="4.10" data-path="r-func.html"><a href="r-func.html#r-func-void"><i class="fa fa-check"></i><b>4.10</b> 결과있는 함수(fruitful function)와 빈 함수(void function)</a></li>
+<li class="chapter" data-level="4.11" data-path="r-func.html"><a href="r-func.html#r-func-why"><i class="fa fa-check"></i><b>4.11</b> 왜 함수를 사용하는가?</a></li>
+<li class="chapter" data-level="4.12" data-path="r-func.html"><a href="r-func.html#r-func-debug"><i class="fa fa-check"></i><b>4.12</b> 디버깅</a></li>
+<li class="chapter" data-level="4.13" data-path="r-func.html"><a href="r-func.html#-r-func-terminology"><i class="fa fa-check"></i><b>4.13</b> 용어정의 {r-func-terminology}</a></li>
+<li class="chapter" data-level="4.14" data-path="r-func.html"><a href="r-func.html#-r-func-ex"><i class="fa fa-check"></i><b>4.14</b> 연습문제 {r-func-ex}</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="r-iter.html"><a href="r-iter.html"><i class="fa fa-check"></i><b>5</b> 반복(Iteration)</a><ul>
+<li class="chapter" data-level="5.1" data-path="r-iter.html"><a href="r-iter.html#r-iter-update"><i class="fa fa-check"></i><b>5.1</b> 변수 갱신</a></li>
+<li class="chapter" data-level="5.2" data-path="r-iter.html"><a href="r-iter.html#r-iter-while"><i class="fa fa-check"></i><b>5.2</b> while문</a></li>
+<li class="chapter" data-level="5.3" data-path="r-iter.html"><a href="r-iter.html#r-iter-infinite-loop"><i class="fa fa-check"></i><b>5.3</b> 무한 루프</a></li>
+<li class="chapter" data-level="5.4" data-path="r-iter.html"><a href="r-iter.html#--break"><i class="fa fa-check"></i><b>5.4</b> 무한 반복과 <code id="r-iter-infinite-loop-break">break</code></a></li>
+<li class="chapter" data-level="5.5" data-path="r-iter.html"><a href="r-iter.html#r-iter-stop"><i class="fa fa-check"></i><b>5.5</b> <code>next</code>로 반복 종료</a></li>
+<li class="chapter" data-level="5.6" data-path="r-iter.html"><a href="r-iter.html#r-iter-for"><i class="fa fa-check"></i><b>5.6</b> for문을 사용한 명확한 루프</a></li>
+<li class="chapter" data-level="5.7" data-path="r-iter.html"><a href="r-iter.html#r-iter-for-pattern"><i class="fa fa-check"></i><b>5.7</b> 루프 패턴</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="r-iter.html"><a href="r-iter.html#r-iter-for-pattern-sum"><i class="fa fa-check"></i><b>5.7.1</b> 계수(counting)와 합산 루프</a></li>
+<li class="chapter" data-level="5.7.2" data-path="r-iter.html"><a href="r-iter.html#r-iter-for-min-max"><i class="fa fa-check"></i><b>5.7.2</b> 최대값과 최소값 루프</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="r-iter.html"><a href="r-iter.html#r-iter-debug"><i class="fa fa-check"></i><b>5.8</b> 디버깅</a></li>
+<li class="chapter" data-level="5.9" data-path="r-iter.html"><a href="r-iter.html#r-iter-terminology"><i class="fa fa-check"></i><b>5.9</b> 용어정의</a></li>
+<li class="chapter" data-level="5.10" data-path="r-iter.html"><a href="r-iter.html#r-iter-ex"><i class="fa fa-check"></i><b>5.10</b> 연습문제</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="r-string.html"><a href="r-string.html"><i class="fa fa-check"></i><b>6</b> 문자열</a><ul>
+<li class="chapter" data-level="6.1" data-path="r-string.html"><a href="r-string.html#r-string-sequence"><i class="fa fa-check"></i><b>6.1</b> 문자열은 순열(sequence)이다.</a></li>
+<li class="chapter" data-level="6.2" data-path="r-string.html"><a href="r-string.html#r-string-length"><i class="fa fa-check"></i><b>6.2</b> <code>length()</code> 함수 사용 문자열 길이 구하기</a></li>
+<li class="chapter" data-level="6.3" data-path="r-string.html"><a href="r-string.html#r-string-traversal"><i class="fa fa-check"></i><b>6.3</b> 루프를 사용한 문자열 운행법</a></li>
+<li class="chapter" data-level="6.4" data-path="r-string.html"><a href="r-string.html#r-string-slice"><i class="fa fa-check"></i><b>6.4</b> 문자열 슬라이스(slice)</a></li>
+<li class="chapter" data-level="6.5" data-path="r-string.html"><a href="r-string.html#r-string-invariance"><i class="fa fa-check"></i><b>6.5</b> 문자열은 불변이다.</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/statkclee/r4inf" target="blank">작업 파일 원본(GitHub)</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">데이터 과학 민주화</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-string" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> 문자열</h1>
+<div id="r-string-sequence" class="section level2">
+<h2><span class="header-section-number">6.1</span> 문자열은 순열(sequence)이다.</h2>
+<p>문자열은 여러 문자들의 순열이다. 꺾쇠 연산자로 한번에 하나씩 문자에 접근한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fruit &lt;-<span class="st"> &#39;banana&#39;</span>
+fruit_letter &lt;-<span class="st"> </span><span class="kw">strsplit</span>(fruit, <span class="st">&quot;&quot;</span>)
+
+letter &lt;-<span class="st"> </span>fruit_letter[[<span class="dv">1</span>]][<span class="dv">1</span>]</code></pre></div>
+<p>두 번째 문장은 변수 <code>fruit_letter</code>에서 1번 위치 문자를 추출하여 변수 <code>letter</code>에 대입한다. 꺾쇠 표현식을 인덱스(index)라고 부른다. 인덱스는 순서(sequence)에서 사용자가 어떤 문자를 원하는지 표시한다.</p>
+<p>하지만, 여러분이 기대한 것은 출력됨이 확인된다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letter</code></pre></div>
+<pre><code>## [1] &quot;b&quot;</code></pre>
+<p>파이썬 사용자에게 ’banana’의 첫 분자는 a가 아니라 b다. 하지만, 파이썬 인텍스는 문자열 처음부터 오프셋(offset)<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>이다. 첫 글자 오프셋은 0 이다.</p>
+<p>하지만, R은 사람 친화적이기 때문에 b가 ’banana’의 첫번째 문자가 되고 a가 두번째, n이 세번째 문자가 된다.</p>
+<p><img src="fig/string-banana.png" alt="바나나 문자열" width="77%" /></p>
+<p>인덱스로 문자와 연산자를 포함하는 어떤 표현식도 사용가능지만, 인덱스 값은 정수일 필요는 없다. 정수가 아닌 경우 다음과 같은 결과를 얻게 된다. 문제는 R에서 <code>1.5</code>를 내려서 <code>1</code>로 처리한다는 점이다. 경우에 따라서는 반올림으로 판단해서 <code>2</code>가 될 수도 있어 오해의 소지가 있기 때문에 무조건 정수로 표현한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fruit_letter[[<span class="dv">1</span>]][<span class="fl">1.5</span>]</code></pre></div>
+<pre><code>## [1] &quot;b&quot;</code></pre>
+</div>
+<div id="r-string-length" class="section level2">
+<h2><span class="header-section-number">6.2</span> <code>length()</code> 함수 사용 문자열 길이 구하기</h2>
+<p><code>length()</code> 함수는 문자열의 문자 갯수를 반환하는 내장함수다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fruit &lt;-<span class="st"> &#39;banana&#39;</span>
+fruit_letter &lt;-<span class="st"> </span><span class="kw">strsplit</span>(fruit, <span class="st">&quot;&quot;</span>)
+
+<span class="kw">length</span>(fruit_letter[[<span class="dv">1</span>]])</code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p>문자열의 가장 마지막 문자를 얻기 위해서, 아래와 같이 시도하려 싶을 것이다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">len &lt;-<span class="st"> </span><span class="kw">length</span>(fruit_letter[[<span class="dv">1</span>]])
+fruit_letter[[<span class="dv">1</span>]][len]</code></pre></div>
+<pre><code>## [1] &quot;a&quot;</code></pre>
+<p>파이썬에서는 인덱스 오류 (IndexError)가 발생하는데 이유는 ‘banana’ 에 6번 인텍스 문자가 없기 때문이다. 0 에서부터 시작했기 때문에 6개 문자는 0 에서부터 5 까지 번호가 매겨졌다. 마지막 문자를 얻기 위해서 length에서 1을 빼야 한다. 하지만, R에서는 사람이 생각하는 방식대로 마지막 문자가 얻어진다.</p>
+</div>
+<div id="r-string-traversal" class="section level2">
+<h2><span class="header-section-number">6.3</span> 루프를 사용한 문자열 운행법</h2>
+<p>연산의 많은 경우에 문자열을 한번에 한 문자씩 처리한다. 종종 처음에서 시작해서, 차례로 각 문자를 선택하고, 선택된 문자에 임의 연산을 수행하고, 끝까지 계속한다. 이런 처리 패턴을 <strong>운행법(traversal)</strong>라고 한다. 운행법을 작성하는 한 방법이 <code>while</code> 루프다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">index &lt;-<span class="st"> </span><span class="dv">1</span>
+while(index &lt;=<span class="st"> </span><span class="kw">length</span>(fruit_letter[[<span class="dv">1</span>]])){
+  letter &lt;-<span class="st"> </span>fruit_letter[[<span class="dv">1</span>]][index]
+  <span class="kw">print</span>(letter)
+  index &lt;-<span class="st"> </span>index +<span class="st"> </span><span class="dv">1</span>
+}</code></pre></div>
+<pre><code>## [1] &quot;b&quot;
+## [1] &quot;a&quot;
+## [1] &quot;n&quot;
+## [1] &quot;a&quot;
+## [1] &quot;n&quot;
+## [1] &quot;a&quot;</code></pre>
+<p>while 루프가 문자열을 운행하여 문자열을 한줄에 한 글자씩 화면에 출력한다. 루프 조건이 <code>index &lt;= length(fruit_letter[[1]])</code>이여서, <code>index</code>가 문자열 길이와 같을 때, 조건은 거짓이 되고, 루프의 몸통 부문은 실행이 되지 않는다. R이 접근한 마지막 <code>length(fruit_letter[[1]])</code> 인텍스 문자로, 문자열의 마지막 문자다.</p>
+<p><strong>연습문제:</strong> 문자열의 마지막 문자에서 시작해서, 문자열 처음으로 역진행하면서 한줄에 한자씩 화면에 출력하는 <code>while</code> 루프를 작성하세요.</p>
+<p>운행법을 작성하는 또 다른 방법은 <code>for</code> 루프다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(char in fruit_letter[[<span class="dv">1</span>]]) {
+  <span class="kw">print</span>(char)
+}</code></pre></div>
+<pre><code>## [1] &quot;b&quot;
+## [1] &quot;a&quot;
+## [1] &quot;n&quot;
+## [1] &quot;a&quot;
+## [1] &quot;n&quot;
+## [1] &quot;a&quot;</code></pre>
+<p>루프를 매번 반복할 때, 문자열 다음 문자가 변수 <code>char</code>에 대입된다. 루프는 더 이상 남겨진 문자가 없을 때까지 계속 실행된다.</p>
+</div>
+<div id="r-string-slice" class="section level2">
+<h2><span class="header-section-number">6.4</span> 문자열 슬라이스(slice)</h2>
+<p>문자열의 일부분을 <strong>슬라이스(slice)</strong>라고 한다. 문자열 슬라이스를 선택하는 것은 문자를 선택하는 것과 유사하다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s &lt;-<span class="st"> </span><span class="kw">strsplit</span>(<span class="st">&#39;Monty Python&#39;</span>, <span class="st">&quot;&quot;</span>)
+<span class="kw">paste</span>(s[[<span class="dv">1</span>]][<span class="dv">1</span>:<span class="dv">5</span>], <span class="dt">collapse=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;Monty&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(s[[<span class="dv">1</span>]][<span class="dv">7</span>:<span class="dv">12</span>], <span class="dt">collapse=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;Python&quot;</code></pre>
+<p><code>[n:m]</code> 연산자는 <code>n</code>번째 문자부터 <code>m</code>번째 문자까지의 문자열 부분을 반환한다.</p>
+<p>파이썬 <code>fruit[:3]</code>와 같이 콜론 앞 첫 인텍스를 생략하면, 문자열 슬라이스는 문자열 처음부터 시작한다. 파이썬 <code>fruit[3:]</code>와 같이 두 번째 인텍스를 생략하면, 문자열 슬라이스는 문자열 끝까지 간다.</p>
+<p>이와 동일한 역할을 수행하는 방법은 <code>head(fruit_letter[[1]], 3)</code>, <code>tail(fruit_letter[[1]], 3)</code>와 같이 <code>head()</code>, <code>tail()</code> 함수를 활용한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fruit &lt;-<span class="st"> &#39;banana&#39;</span>
+fruit_letter &lt;-<span class="st"> </span><span class="kw">strsplit</span>(fruit, <span class="st">&quot;&quot;</span>)
+
+<span class="kw">head</span>(fruit_letter[[<span class="dv">1</span>]], <span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] &quot;b&quot; &quot;a&quot; &quot;n&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(fruit_letter[[<span class="dv">1</span>]], <span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;n&quot; &quot;a&quot;</code></pre>
+<p>만약 첫번째 인텍스가 두번째보다 크거나 같은 경우 파이썬에는 결과가 인용부호로 표현되는 빈 문자열(empty string)이 된다. 하지만, R에서는 해당 인덱스에 해당되는 문자가 추출된다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fruit_letter[[<span class="dv">1</span>]][<span class="dv">3</span>:<span class="dv">3</span>]</code></pre></div>
+<pre><code>## [1] &quot;n&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fruit_letter[[<span class="dv">1</span>]][<span class="dv">2</span>:<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot;</code></pre>
+<p>빈 문자열은 어떤 문자도 포함하지 않아서 길이가 0 이 되지만, 이것을 제외하고 다른 문자열과 동일하다.</p>
+</div>
+<div id="r-string-invariance" class="section level2">
+<h2><span class="header-section-number">6.5</span> 문자열은 불변이다.</h2>
+<p>문자열 내부에 있는 문자를 변경하려고 대입문 왼쪽편에 [] 연산자를 사용하고 싶은 유혹이 있을 것이다. 예를 들어 다음과 같다.</p>
+<p>이 경우 “객체(object)”는 문자열이고, 대입하고자 하는 문자는 “항목(item)”이다. 지금으로서 객체는 값과 동일하지만, 나중에 객체 정의를 좀더 상세화할 것이다. 항목은 순서 값 중의 하나다.</p>
+<p>오류 이유는 문자열은 불변(immutable)이기 때문이다. 따라서 기존 문자열을 변경할 수 없다는 의미다. 최선의 방법은 원래 문자열을 변형한 새로운 문자열을 생성하는 것이다.</p>
+<p>새로운 첫 문자에 greeting 문자열 슬라이스를 연결한다. 원래 문자열에는 어떤 영향도 주지 않는 새로운 문자열을 생성되었다.</p>
+<pre><code>루프 돌기(looping) 계수(counting)</code></pre>
+<p>다음 프로그램은 문자열에 문자 a가 나타나는 횟수를 계수한다.</p>
+<p>상기 프로그램은 계수기(counter)라고 부르는 또다른 연산 패턴을 보여준다. 변수 count는 0 으로 초기화 되고, 매번 a를 찾을 때마다 증가한다. 루프를 빠져나갔을 때, count는 결과 값 즉, a가 나타난 총 횟수를 담고 있다.</p>
+<p>문자열과 문자를 인자(argument)로 받도록 상기 코드를 count라는 함수로 캡슐화(encapsulation)하고 일반화하세요.</p>
+<pre><code>in 연산자</code></pre>
+<p>연산자 in 은 불 연산자로 두 개의 문자열을 받아, 첫 번째 문자열이 두 번째 문자열의 일부이면 참(True)을 반환한다.</p>
+<pre><code>문자열 비교</code></pre>
+<p>비교 연산자도 문자열에서 동작한다. 두 문자열이 같은지를 살펴보다.</p>
+<p>다른 비교 연산자는 단어를 알파벳 순서로 정렬하는데 유용하다.</p>
+<p>파이썬은 사람과 동일하는 방식으로 대문자와 소문자를 다루지 않는다. 모든 대문자는 소문자 앞에 온다.</p>
+<p>이러한 문제를 다루는 일반적인 방식은 비교 연산을 수행하기 전에 문자열을 표준 포맷으로 예를 들어 모두 소문자, 변환하는 것입니다. 경우에 따라서 “Pineapple”로 무장한 사람들로부터 여러분을 보호해야하는 것을 명심하세요.</p>
+<pre><code>string 메쏘드</code></pre>
+<p>문자열은 파이썬 객체(objects)의 한 예다. 객체는 데이터(실제 문자열 자체)와 메쏘드(methods)를 담고 있다. 메쏘드는 객체에 내장되고 어떤 객체의 인스턴스(instance)에도 사용되는 사실상 함수다.</p>
+<p>객체에 대해 이용가능한 메쏘드를 보여주는 dir 함수가 파이썬에 있다. type 함수는 객체의 자료형(type)을 보여 주고, dir은 객체에 사용될 수 있는 메쏘드를 보여준다.</p>
+<p>dir 함수가 메쏘드 목록을 보여주고, 메쏘드에 대한 간단한 문서 정보는 help를 사용할 수 있지만, 문자열 메쏘드에 대한 좀더 좋은 문서 정보는 docs.python.org/library/string.html에서 찾을 수 있다.</p>
+<p>인자를 받고 값을 반환한다는 점에서 메쏘드(method)를 호출하는 것은 함수를 호출하는 것과 유사하지만, 구문은 다르다. 구분자로 점을 사용해서 변수명에 메쏘드명을 붙여 메쏘드를 호출한다.</p>
+<p>예를 들어, upper 메쏘드는 문자열을 받아 모두 대문자로 변환된 새로운 문자열을 반환한다.</p>
+<p>함수 구문 upper(word) 대신에, word.upper() 메쏘드 구문을 사용한다.</p>
+<p>이런 형태의 점 표기법은 메쏘드 이름(upper)과 메쏘드가 적용되는 문자열 이름(word)을 명세한다. 빈 괄호는 메쏘드가 인자가 없다는 것을 나타낸다.</p>
+<p>메쏘드를 부르는 것을 호출(invocation)이라고 부른다. 상기의 경우, word에 upper 메쏘드를 호출한다고 말한다.</p>
+<p>예를 들어, 문자열안에 문자열의 위치를 찾는 find라는 문자열 메쏘드가 있다.</p>
+<p>상기 예제에서, word 문자열의 find 메쏘드를 호출하여 매개 변수로 찾고자 하는 문자를 넘긴다.</p>
+<p>find 메쏘드는 문자뿐만 아니라 부속 문자열(substring)도 찾을 수 있다.</p>
+<p>두 번째 인자로 어디서 검색을 시작할지 인텍스를 넣을 수 있다.</p>
+<p>한 가지 자주 있는 작업은 strip 메쏘드를 사용해서 문자열 시작과 끝의 공백(공백 여러개, 탭, 새줄)을 제거하는 것이다.</p>
+<p>startswith 메쏘드는 참, 거짓 같은 불 값(boolean value)을 반환한다.</p>
+<p>startswith가 대소문자를 구별하는 것을 요구하기 때문에 lower 메쏘드를 사용해서 검증을 수행하기 전에, 한 줄을 입력받아 모두 소문자로 변환하는 것이 필요하다.</p>
+<p>마지막 예제에서 문자열이 문자 “p”로 시작하는지를 검증하기 위해서, lower 메쏘드를 호출하고 나서 바로 startswith 메쏘드를 사용한다. 주의깊게 순서만 다룬다면, 한 줄에 다수 메쏘드를 호출할 수 있다.</p>
+<p>앞선 예제와 유사한 함수인 count로 불리는 문자열 메쏘드가 있다. docs.python.org/library/string.html에서 count 메쏘드에 대한 문서를 읽고, 문자열 ’banana’의 문자가 몇 개인지 계수하는 메쏘드 호출 프로그램을 작성하세요.</p>
+<pre><code>문자열 파싱(Parsing)</code></pre>
+<p>종종, 문자열을 들여다 보고 특정 부속 문자열(substring)을 찾고 싶다. 예를 들어, 아래와 같은 형식으로 작성된 일련의 라인이 주어졌다고 가정하면,</p>
+<p>From <a href="mailto:stephen.marquard@uct.ac.za">stephen.marquard@uct.ac.za</a> Sat Jan 5 09:14:16 2008 각 라인마다 뒤쪽 전자우편 주소(즉, uct.ac.za)만 뽑아내고 싶을 것이다. find 메쏘드와 문자열 슬라이싱(string sliceing)을 사용해서 작업을 수행할 수 있다.</p>
+<p>우선, 문자열에서 골뱅이(@, at-sign) 기호의 위치를 찾는다. 그리고, 골뱅이 기호 뒤 첫 공백 위치를 찾는다. 그리고 나서, 찾고자 하는 부속 문자열을 뽑아내기 위해서 문자열 슬라이싱을 사용한다.</p>
+<p>find 메쏘드를 사용해서 찾고자 하는 문자열의 시작 위치를 명세한다. 문자열 슬라이싱(slicing)할 때, 골뱅기 기호 뒤부터 빈 공백을 포함하지 않는 위치까지 문자열을 뽑아낸다.</p>
+<p>find 메쏘드에 대한 문서는 docs.python.org/library/string.html에서 참조 가능하다.</p>
+<pre><code>서식 연산자</code></pre>
+<p>서식 연산자(format operator), 는 문자열 일부를 변수에 저장된 값으로 바꿔 문자열을 구성한다. 정수에 서식 연산자가 적용될 때, 는 나머지 연산자가 된다. 하지만 첫 피연산자가 문자열이면, 은 서식 연산자가 된다.</p>
+<p>첫 피연산자는 서식 문자열 format string로 두번째 피연산자가 어떤 형식으로 표현되는지를 명세하는 하나 혹은 그 이상의 서식 순서 format sequence를 담고 있다. 결과값은 문자열이다.</p>
+<p>예를 들어, 형식 순서 ’%d’의 의미는 두번째 피연산자가 정수 형식으로 표현됨을 뜻한다. (d는 “decimal”을 나타낸다.)</p>
+<p>결과는 문자열 ’42’로 정수 42와 혼동하면 안 된다.</p>
+<p>서식 순서는 문자열 어디에도 나타날 수 있어서 문장 중간에 값을 임베드(embed)할 수 있다.</p>
+<p>만약 문자열 서식 순서가 하나 이상이라면, 두번째 인자는 튜플(tuple)이 된다. 서식 순서 각각은 순서대로 튜플 요소와 매칭된다.</p>
+<p>다음 예제는 정수 형식을 표현하기 위해서 ‘%d’, 부동 소수점 형식을 표현하기 위해서 ‘%g’, 문자열 형식을 표현하기 위해서 ‘%s’을 사용한 사례다. 여기서 왜 부동 소수점 형식이’%f’대신에 ’%g’인지는 질문하지 말아주세요.</p>
+<p>튜플 요소 숫자는 문자열 서식 순서의 숫자와 일치해야 하고, 요소의 자료형(type)도 서식 순서와 일치해야 한다.</p>
+<p>상기 첫 예제는 충분한 요소 개수가 되지 않고, 두 번째 예제는 자료형이 맞지 않는다.</p>
+<p>서식 연산자는 강력하지만, 사용하기가 어럽다. 더 많은 정보는 docs.python.org/lib/typesseq-strings.html에서 찾을 수 있다.</p>
+<pre><code>디버깅</code></pre>
+<p>프로그램을 작성하면서 배양해야 하는 기술은 항상 자신에게 질문을 하는 것이다. “여기서 무엇이 잘못 될 수 있을까?” 혹은 “내가 작성한 완벽한 프로그램을 망가뜨리기 위해 사용자는 무슨 엄청난 일을 할 것인가?”</p>
+<p>예를 들어 앞장의 반복 while 루프를 시연하기 위해 사용한 프로그램을 살펴봅시다.</p>
+<p>사용자가 입력값으로 빈 공백 줄을 입력하게 될 때 무엇이 발생하는지 살펴봅시다.</p>
+<p>빈 공백줄이 입력될 때까지 코드는 잘 작동합니다. 그리고 나서, 0 번째 문자가 없어서 트레이스백(traceback)이 발생한다. 입력줄이 비어있을 때, 코드 3번째 줄을 “안전”하게 만드는 두 가지 방법이 있다.</p>
+<p>하나는 빈 문자열이면 거짓(False)을 반환하도록 startswith 메쏘드를 사용하는 것이다.</p>
+<p>가디언 패턴(guardian pattern)을 사용한 if문으로 문자열에 적어도 하나의 문자가 있는 경우만 두번째 논리 표현식이 평가되도록 코드를 작성한다.</p>
+<pre><code>용어정의</code></pre>
+<p>[계수기(counter):] 무언가를 계수하기 위해서 사용되는 변수로 일반적으로 0 으로 초기화하고 나서 증가한다. [빈 문자열(empty string):] 두 인용부호로 표현되고, 어떤 문자도 없고 길이가 0 인 문자열. [서식 연산자(format operator):] 서식 문자열과 튜플을 받아, 서식 문자열에 지정된 서식으로 튜플 요소를 포함하는 문자열을 생성하는 연산자, . [서식 순서(format sequence):] d처럼 어떤 값의 서식으로 표현되어야 하는지를 명세하는 “서식 문자열” 문자 순서. [서식 문자열(format string):] 서식 순서를 포함하는 서식 연산자와 함께 사용되는 문자열. [플래그(flag):] 조건이 참인지를 표기하기 위해 사용하는 불 변수(boolean variable) [호출(invocation):] 메쏘드를 호출하는 명령문. [불변(immutable):] 순서의 항목에 대입할 수 없는 특성. [인덱스(index):] 문자열의 문자처럼 순서(sequence)에 항목을 선택하기 위해 사용되는 정수 값. [항목(item):] 순서에 있는 값의 하나. [메쏘드(method):] 객체와 연관되어 점 표기법을 사용하여 호출되는 함수. [객체(object):] 변수가 참조하는 무엇. 지금은 “객체”와 “값”을 구별없이 사용한다. [검색(search):] 찾고자 하는 것을 찾았을 때 멈추는 운행법 패턴. [순서(sequence):] 정돈된 집합. 즉, 정수 인텍스로 각각의 값이 확인되는 값의 집합. [슬라이스(slice):] 인텍스 범위로 지정되는 문자열 부분. [운행법(traverse):] 순서(sequence)의 항목을 반복적으로 훑기, 각각에 대해서는 동일한 연산을 수행.</p>
+<pre><code>연습문제</code></pre>
+<p>다음 문자열을 파이썬 코드를 작성하세요.</p>
+<p>str = ‘X-DSPAM-Confidence: 0.8475’ find 메쏘드와 문자열 슬라이싱을 사용하여 콜론(:) 문자 뒤 문자열을 뽑아내고 float 함수를 사용하여 뽑아낸 문자열을 부동 소수점 숫자로 변환하세요.</p>
+<p><a href="https://docs.python.org/2.7/library/stdtypes.html#string-methods에서" class="uri">https://docs.python.org/2.7/library/stdtypes.html#string-methods에서</a> 문자열 메쏘드 문서를 읽어보세요. 어떻게 동작하는가를 이해도를 확인하기 위해서 몇개를 골라 실험을 해보세요. strip과 replace가 특히 유용합니다.</p>
+<p>문서는 좀 혼동스러울 수 있는 구문을 사용합니다. 예를 들어, find(sub[, start[, end]])의 꺾쇠기호는 선택(옵션) 인수를 나타냅니다. 그래서, sub은 필수지만, start은 선택 사항이고, 만약 start가 인자로 포함된다면, end는 선택이 된다.</p>
+
+<div id="refs" class="references">
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>컴퓨터에서 어떤 주소로부터 간격을 두고 떨어진 주소와의 거리. 기억 장치가 페이지 혹은 세그먼트 단위로 나누어져 있을 때 하나의 시작 주소로부터 오프셋만큼 떨어진 위치를 나타내는 것이다. 출처: 네이버 지식백과 - 오프셋 [offset] (IT용어사전, 한국정보통신기술협회)<a href="r-string.html#fnref4">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-iter.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/statkclee/r4inf/edit/master/06-string.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

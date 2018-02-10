@@ -180,6 +180,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.9" data-path="r-iter.html"><a href="r-iter.html#r-iter-terminology"><i class="fa fa-check"></i><b>5.9</b> 용어정의</a></li>
 <li class="chapter" data-level="5.10" data-path="r-iter.html"><a href="r-iter.html#r-iter-ex"><i class="fa fa-check"></i><b>5.10</b> 연습문제</a></li>
 </ul></li>
+<li class="chapter" data-level="6" data-path="r-string.html"><a href="r-string.html"><i class="fa fa-check"></i><b>6</b> 문자열</a><ul>
+<li class="chapter" data-level="6.1" data-path="r-string.html"><a href="r-string.html#r-string-sequence"><i class="fa fa-check"></i><b>6.1</b> 문자열은 순열(sequence)이다.</a></li>
+<li class="chapter" data-level="6.2" data-path="r-string.html"><a href="r-string.html#r-string-length"><i class="fa fa-check"></i><b>6.2</b> <code>length()</code> 함수 사용 문자열 길이 구하기</a></li>
+<li class="chapter" data-level="6.3" data-path="r-string.html"><a href="r-string.html#r-string-traversal"><i class="fa fa-check"></i><b>6.3</b> 루프를 사용한 문자열 운행법</a></li>
+<li class="chapter" data-level="6.4" data-path="r-string.html"><a href="r-string.html#r-string-slice"><i class="fa fa-check"></i><b>6.4</b> 문자열 슬라이스(slice)</a></li>
+<li class="chapter" data-level="6.5" data-path="r-string.html"><a href="r-string.html#r-string-invariance"><i class="fa fa-check"></i><b>6.5</b> 문자열은 불변이다.</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/statkclee/r4inf" target="blank">작업 파일 원본(GitHub)</a></li>
 
@@ -267,28 +274,28 @@ NAs introduced by coercion </code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(i in <span class="dv">1</span>:<span class="dv">10</span>) {
   <span class="kw">cat</span>(<span class="kw">runif</span>(<span class="dv">1</span>),<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
 }</code></pre></div>
-<pre><code>## 0.3820214 
-## 0.2397551 
-## 0.8095699 
-## 0.4297601 
-## 0.6080594 
-## 0.2072915 
-## 0.4193731 
-## 0.7726375 
-## 0.4295457 
-## 0.6942592</code></pre>
+<pre><code>## 0.9693408 
+## 0.4331631 
+## 0.0439575 
+## 0.7803182 
+## 0.4654325 
+## 0.2524787 
+## 0.8182718 
+## 0.8839868 
+## 0.8848303 
+## 0.2877311</code></pre>
 <p>상기 프로그램은 0.0 에서 1.0 구간에서 10개 난수 리스트를 생성한다.</p>
 <p><strong>연습문제</strong> 여러분의 컴퓨터에 프로그램을 실행해서, 어떤 난수가 생성되는지 살펴보세요. 한번 이상 프로그램을 실행하여 보고, 어떤 난수가 생성되는지 다시 살펴보세요.</p>
 <p><code>runif()</code> 함수는 난수를 다루는 많은 함수 중의 하나다. <code>sample()</code> 함수는 정수 난수 범위와 난수 갯수를 매개 변수를 입력받아 최저값(low)과 최고값(high) 사이 (최저값과, 최저값 모두 포함) 정수를 반환한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">10</span>, <span class="dv">5</span>)</code></pre></div>
-<pre><code>## [1]  2  4  9 10  7</code></pre>
+<pre><code>## [1] 8 6 2 5 4</code></pre>
 <p><code>sample(1:10, 5)</code> 실행문은 1 ~ 10 사이 정수 10개 중에서 난수로 5개를 추출한다는 뜻이다.</p>
 <p>무작위로 특정 열에서 하나의 요소를 뽑아내기 위해, <code>sample()</code>를 동일하게 사용한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)
 <span class="kw">sample</span>(t, <span class="dv">1</span>)</code></pre></div>
-<pre><code>## [1] 5</code></pre>
+<pre><code>## [1] 1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(t, <span class="dv">1</span>)</code></pre></div>
-<pre><code>## [1] 3</code></pre>
+<pre><code>## [1] 5</code></pre>
 <p>또한 runif() 모듈을 활용하여 정규분포, 지수분포, 감마분포 및 기타 연속형 분포에서 난수를 생성하는 함수도 제공된다.</p>
 </div>
 <div id="r-func-math" class="section level2">

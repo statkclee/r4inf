@@ -55,4 +55,5 @@ knitr::write_bib(c(
 options(warn=-1)
 knitr::opts_chunk$set(cache=TRUE)
 # install.packages(c("readr", "tidyverse", "DT"), repos="http://cran.rstudio.com/")
+install.packages(c("glue"), repos="http://cran.rstudio.com/")
 ```

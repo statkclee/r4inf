@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>데이터 과학 민주화</title>
+  <meta name="description" content="데이터 과학 민주화">
+  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+
+  <meta property="og:title" content="데이터 과학 민주화" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="statkclee/r4inf" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="데이터 과학 민주화" />
+  
+  
+  
+
+<meta name="author" content="이광춘 - R Meetup 운영">
+
+
+<meta name="date" content="2018-02-16">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="r-file.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">땅, 자본, 데이터</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>기계와의 경쟁</a></li>
+<li class="chapter" data-level="1" data-path="r-intro.html"><a href="r-intro.html"><i class="fa fa-check"></i><b>1</b> 왜 프로그래밍을 배워야 하는가?</a><ul>
+<li class="chapter" data-level="1.1" data-path="r-intro.html"><a href="r-intro.html#r-intro-motivation"><i class="fa fa-check"></i><b>1.1</b> 창의성과 동기</a></li>
+<li class="chapter" data-level="1.2" data-path="r-intro.html"><a href="r-intro.html#r-intro-hardware-architecture"><i class="fa fa-check"></i><b>1.2</b> 컴퓨터 하드웨어 아키텍처</a></li>
+<li class="chapter" data-level="1.3" data-path="r-intro.html"><a href="r-intro.html#r-intro-programming"><i class="fa fa-check"></i><b>1.3</b> 프로그래밍 이해하기</a></li>
+<li class="chapter" data-level="1.4" data-path="r-intro.html"><a href="r-intro.html#r-intro-word-sentence"><i class="fa fa-check"></i><b>1.4</b> 단어와 문장</a></li>
+<li class="chapter" data-level="1.5" data-path="r-intro.html"><a href="r-intro.html#r-intro-conversation"><i class="fa fa-check"></i><b>1.5</b> R과 대화하기</a></li>
+<li class="chapter" data-level="1.6" data-path="r-intro.html"><a href="r-intro.html#r-intro-interpreter"><i class="fa fa-check"></i><b>1.6</b> 전문용어: 인터프리터와 컴파일러</a></li>
+<li class="chapter" data-level="1.7" data-path="r-intro.html"><a href="r-intro.html#r-intro-write-program"><i class="fa fa-check"></i><b>1.7</b> 프로그램 작성하기</a></li>
+<li class="chapter" data-level="1.8" data-path="r-intro.html"><a href="r-intro.html#r-intro-what-is-a-program"><i class="fa fa-check"></i><b>1.8</b> 프로그램이란 무엇인가?</a></li>
+<li class="chapter" data-level="1.9" data-path="r-intro.html"><a href="r-intro.html#r-intro-program-component"><i class="fa fa-check"></i><b>1.9</b> 프로그램 구성요소</a></li>
+<li class="chapter" data-level="1.10" data-path="r-intro.html"><a href="r-intro.html#r-intro-bug"><i class="fa fa-check"></i><b>1.10</b> 프로그램이 잘못되면?</a></li>
+<li class="chapter" data-level="1.11" data-path="r-intro.html"><a href="r-intro.html#r-intro-journey"><i class="fa fa-check"></i><b>1.11</b> 학습으로의 여정</a></li>
+<li class="chapter" data-level="1.12" data-path="r-intro.html"><a href="r-intro.html#r-intro-terminology"><i class="fa fa-check"></i><b>1.12</b> 용어사전</a></li>
+<li class="chapter" data-level="1.13" data-path="r-intro.html"><a href="r-intro.html#r-intro-exercise"><i class="fa fa-check"></i><b>1.13</b> 연습문제</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-var.html"><a href="r-var.html"><i class="fa fa-check"></i><b>2</b> 변수, 표현식, 문장(Statement)</a><ul>
+<li class="chapter" data-level="2.1" data-path="r-var.html"><a href="r-var.html#r-var-value-type"><i class="fa fa-check"></i><b>2.1</b> 값(Value)과 자료형(Type)</a></li>
+<li class="chapter" data-level="2.2" data-path="r-var.html"><a href="r-var.html#r-var-variable"><i class="fa fa-check"></i><b>2.2</b> 변수(Variable)</a></li>
+<li class="chapter" data-level="2.3" data-path="r-var.html"><a href="r-var.html#r-var-keywords"><i class="fa fa-check"></i><b>2.3</b> 변수명(Variable name)과 예약어(keywords)</a></li>
+<li class="chapter" data-level="2.4" data-path="r-var.html"><a href="r-var.html#r-var-statement"><i class="fa fa-check"></i><b>2.4</b> 문장(Statement)</a></li>
+<li class="chapter" data-level="2.5" data-path="r-var.html"><a href="r-var.html#r-var-operator"><i class="fa fa-check"></i><b>2.5</b> 연산자(Operator)와 피연산자(Operands)</a></li>
+<li class="chapter" data-level="2.6" data-path="r-var.html"><a href="r-var.html#r-var-expression"><i class="fa fa-check"></i><b>2.6</b> 표현식(Expression)</a></li>
+<li class="chapter" data-level="2.7" data-path="r-var.html"><a href="r-var.html#r-var-order-operations"><i class="fa fa-check"></i><b>2.7</b> 연산자 적용 우선순위 (Order of Operations)</a></li>
+<li class="chapter" data-level="2.8" data-path="r-var.html"><a href="r-var.html#r-var-modular"><i class="fa fa-check"></i><b>2.8</b> 나머지 연산자 (Modulus Operator)</a></li>
+<li class="chapter" data-level="2.9" data-path="r-var.html"><a href="r-var.html#r-var-string-operator"><i class="fa fa-check"></i><b>2.9</b> 문자열 연산자 (String Operator)</a></li>
+<li class="chapter" data-level="2.10" data-path="r-var.html"><a href="r-var.html#r-var-input"><i class="fa fa-check"></i><b>2.10</b> 사용자에게서 입력값 받기</a></li>
+<li class="chapter" data-level="2.11" data-path="r-var.html"><a href="r-var.html#r-var-comment"><i class="fa fa-check"></i><b>2.11</b> 주석</a></li>
+<li class="chapter" data-level="2.12" data-path="r-var.html"><a href="r-var.html#r-var-name"><i class="fa fa-check"></i><b>2.12</b> 연상되는 변수명 만들기</a></li>
+<li class="chapter" data-level="2.13" data-path="r-var.html"><a href="r-var.html#r-var-debug"><i class="fa fa-check"></i><b>2.13</b> 디버깅(Debugging)</a></li>
+<li class="chapter" data-level="2.14" data-path="r-var.html"><a href="r-var.html#r-var-terminology"><i class="fa fa-check"></i><b>2.14</b> 용어 설명</a></li>
+<li class="chapter" data-level="2.15" data-path="r-var.html"><a href="r-var.html#r-var-ex"><i class="fa fa-check"></i><b>2.15</b> 연습문제</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-cont.html"><a href="r-cont.html"><i class="fa fa-check"></i><b>3</b> 조건부 실행</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-cont.html"><a href="r-cont.html#r-cont-boolean"><i class="fa fa-check"></i><b>3.1</b> 부울 표현식(Boolean expressions)</a></li>
+<li class="chapter" data-level="3.2" data-path="r-cont.html"><a href="r-cont.html#r-cont-logical-operator"><i class="fa fa-check"></i><b>3.2</b> 논리 연산자</a></li>
+<li class="chapter" data-level="3.3" data-path="r-cont.html"><a href="r-cont.html#r-cont-run"><i class="fa fa-check"></i><b>3.3</b> 조건문 실행</a></li>
+<li class="chapter" data-level="3.4" data-path="r-cont.html"><a href="r-cont.html#r-cont-alternative"><i class="fa fa-check"></i><b>3.4</b> 대안 실행</a></li>
+<li class="chapter" data-level="3.5" data-path="r-cont.html"><a href="r-cont.html#r-cont-chained"><i class="fa fa-check"></i><b>3.5</b> 연쇄 조건문</a></li>
+<li class="chapter" data-level="3.6" data-path="r-cont.html"><a href="r-cont.html#r-cont-nested"><i class="fa fa-check"></i><b>3.6</b> 중첩 조건문</a></li>
+<li class="chapter" data-level="3.7" data-path="r-cont.html"><a href="r-cont.html#r-cont-try-catch"><i class="fa fa-check"></i><b>3.7</b> try와 catch를 활용한 예외 처리</a></li>
+<li class="chapter" data-level="3.8" data-path="r-cont.html"><a href="r-cont.html#r-cont-short-circuit"><i class="fa fa-check"></i><b>3.8</b> 논리 연산식의 단락(Short circuit) 평가</a></li>
+<li class="chapter" data-level="3.9" data-path="r-cont.html"><a href="r-cont.html#r-cont-debugging"><i class="fa fa-check"></i><b>3.9</b> 디버깅(Debugging)</a></li>
+<li class="chapter" data-level="3.10" data-path="r-cont.html"><a href="r-cont.html#r-cont-terminology"><i class="fa fa-check"></i><b>3.10</b> 용어 정의</a></li>
+<li class="chapter" data-level="3.11" data-path="r-cont.html"><a href="r-cont.html#r-cont-ex"><i class="fa fa-check"></i><b>3.11</b> 연습문제</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-func.html"><a href="r-func.html"><i class="fa fa-check"></i><b>4</b> 함수</a><ul>
+<li class="chapter" data-level="4.1" data-path="r-func.html"><a href="r-func.html#r-func-call"><i class="fa fa-check"></i><b>4.1</b> 함수 호출</a></li>
+<li class="chapter" data-level="4.2" data-path="r-func.html"><a href="r-func.html#r-func-builtin"><i class="fa fa-check"></i><b>4.2</b> 내장(Built-in) 함수</a></li>
+<li class="chapter" data-level="4.3" data-path="r-func.html"><a href="r-func.html#r-func-type"><i class="fa fa-check"></i><b>4.3</b> 자료형(type) 변환 함수</a></li>
+<li class="chapter" data-level="4.4" data-path="r-func.html"><a href="r-func.html#r-func-random-number"><i class="fa fa-check"></i><b>4.4</b> 난수(Random numbers)</a></li>
+<li class="chapter" data-level="4.5" data-path="r-func.html"><a href="r-func.html#r-func-math"><i class="fa fa-check"></i><b>4.5</b> 수학 함수</a></li>
+<li class="chapter" data-level="4.6" data-path="r-func.html"><a href="r-func.html#r-func-new-function"><i class="fa fa-check"></i><b>4.6</b> 신규 함수 추가</a></li>
+<li class="chapter" data-level="4.7" data-path="r-func.html"><a href="r-func.html#r-func-how-to-use"><i class="fa fa-check"></i><b>4.7</b> 함수 정의와 사용법</a></li>
+<li class="chapter" data-level="4.8" data-path="r-func.html"><a href="r-func.html#r-func-control"><i class="fa fa-check"></i><b>4.8</b> 실행 흐름</a></li>
+<li class="chapter" data-level="4.9" data-path="r-func.html"><a href="r-func.html#r-func-parameter-argument"><i class="fa fa-check"></i><b>4.9</b> 매개 변수(parameter)와 인수(argument)</a></li>
+<li class="chapter" data-level="4.10" data-path="r-func.html"><a href="r-func.html#r-func-void"><i class="fa fa-check"></i><b>4.10</b> 결과있는 함수(fruitful function)와 빈 함수(void function)</a></li>
+<li class="chapter" data-level="4.11" data-path="r-func.html"><a href="r-func.html#r-func-why"><i class="fa fa-check"></i><b>4.11</b> 왜 함수를 사용하는가?</a></li>
+<li class="chapter" data-level="4.12" data-path="r-func.html"><a href="r-func.html#r-func-debug"><i class="fa fa-check"></i><b>4.12</b> 디버깅</a></li>
+<li class="chapter" data-level="4.13" data-path="r-func.html"><a href="r-func.html#-r-func-terminology"><i class="fa fa-check"></i><b>4.13</b> 용어정의 {r-func-terminology}</a></li>
+<li class="chapter" data-level="4.14" data-path="r-func.html"><a href="r-func.html#-r-func-ex"><i class="fa fa-check"></i><b>4.14</b> 연습문제 {r-func-ex}</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="r-iter.html"><a href="r-iter.html"><i class="fa fa-check"></i><b>5</b> 반복(Iteration)</a><ul>
+<li class="chapter" data-level="5.1" data-path="r-iter.html"><a href="r-iter.html#r-iter-update"><i class="fa fa-check"></i><b>5.1</b> 변수 갱신</a></li>
+<li class="chapter" data-level="5.2" data-path="r-iter.html"><a href="r-iter.html#r-iter-while"><i class="fa fa-check"></i><b>5.2</b> while문</a></li>
+<li class="chapter" data-level="5.3" data-path="r-iter.html"><a href="r-iter.html#r-iter-infinite-loop"><i class="fa fa-check"></i><b>5.3</b> 무한 루프</a></li>
+<li class="chapter" data-level="5.4" data-path="r-iter.html"><a href="r-iter.html#--break"><i class="fa fa-check"></i><b>5.4</b> 무한 반복과 <code id="r-iter-infinite-loop-break">break</code></a></li>
+<li class="chapter" data-level="5.5" data-path="r-iter.html"><a href="r-iter.html#r-iter-stop"><i class="fa fa-check"></i><b>5.5</b> <code>next</code>로 반복 종료</a></li>
+<li class="chapter" data-level="5.6" data-path="r-iter.html"><a href="r-iter.html#r-iter-for"><i class="fa fa-check"></i><b>5.6</b> for문을 사용한 명확한 루프</a></li>
+<li class="chapter" data-level="5.7" data-path="r-iter.html"><a href="r-iter.html#r-iter-for-pattern"><i class="fa fa-check"></i><b>5.7</b> 루프 패턴</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="r-iter.html"><a href="r-iter.html#r-iter-for-pattern-sum"><i class="fa fa-check"></i><b>5.7.1</b> 계수(counting)와 합산 루프</a></li>
+<li class="chapter" data-level="5.7.2" data-path="r-iter.html"><a href="r-iter.html#r-iter-for-min-max"><i class="fa fa-check"></i><b>5.7.2</b> 최대값과 최소값 루프</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="r-iter.html"><a href="r-iter.html#r-iter-debug"><i class="fa fa-check"></i><b>5.8</b> 디버깅</a></li>
+<li class="chapter" data-level="5.9" data-path="r-iter.html"><a href="r-iter.html#r-iter-terminology"><i class="fa fa-check"></i><b>5.9</b> 용어정의</a></li>
+<li class="chapter" data-level="5.10" data-path="r-iter.html"><a href="r-iter.html#r-iter-ex"><i class="fa fa-check"></i><b>5.10</b> 연습문제</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="r-string.html"><a href="r-string.html"><i class="fa fa-check"></i><b>6</b> 문자열</a><ul>
+<li class="chapter" data-level="6.1" data-path="r-string.html"><a href="r-string.html#r-string-sequence"><i class="fa fa-check"></i><b>6.1</b> 문자열은 순열(sequence)이다.</a></li>
+<li class="chapter" data-level="6.2" data-path="r-string.html"><a href="r-string.html#r-string-length"><i class="fa fa-check"></i><b>6.2</b> <code>length()</code> 함수 사용 문자열 길이 구하기</a></li>
+<li class="chapter" data-level="6.3" data-path="r-string.html"><a href="r-string.html#r-string-traversal"><i class="fa fa-check"></i><b>6.3</b> 루프를 사용한 문자열 운행법</a></li>
+<li class="chapter" data-level="6.4" data-path="r-string.html"><a href="r-string.html#r-string-slice"><i class="fa fa-check"></i><b>6.4</b> 문자열 슬라이스(slice)</a></li>
+<li class="chapter" data-level="6.5" data-path="r-string.html"><a href="r-string.html#r-string-count"><i class="fa fa-check"></i><b>6.5</b> 루프 돌기(looping) 계수(counting)</a></li>
+<li class="chapter" data-level="6.6" data-path="r-string.html"><a href="r-string.html#r-string-in-operator"><i class="fa fa-check"></i><b>6.6</b> <code>%in%</code> 연산자</a></li>
+<li class="chapter" data-level="6.7" data-path="r-string.html"><a href="r-string.html#r-string-comparison-operator"><i class="fa fa-check"></i><b>6.7</b> 문자열 비교</a></li>
+<li class="chapter" data-level="6.8" data-path="r-string.html"><a href="r-string.html#r-string-method"><i class="fa fa-check"></i><b>6.8</b> 문자열 함수</a></li>
+<li class="chapter" data-level="6.9" data-path="r-string.html"><a href="r-string.html#r-string-parsing"><i class="fa fa-check"></i><b>6.9</b> 문자열 파싱(Parsing)</a></li>
+<li class="chapter" data-level="6.10" data-path="r-string.html"><a href="r-string.html#r-string-format"><i class="fa fa-check"></i><b>6.10</b> 서식 연산자</a></li>
+<li class="chapter" data-level="6.11" data-path="r-string.html"><a href="r-string.html#r-string-debug"><i class="fa fa-check"></i><b>6.11</b> 디버깅</a></li>
+<li class="chapter" data-level="6.12" data-path="r-string.html"><a href="r-string.html#r-string-terminology"><i class="fa fa-check"></i><b>6.12</b> 용어정의</a></li>
+<li class="chapter" data-level="6.13" data-path="r-string.html"><a href="r-string.html#r-string-ex"><i class="fa fa-check"></i><b>6.13</b> 연습문제</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="r-file.html"><a href="r-file.html"><i class="fa fa-check"></i><b>7</b> 파일</a><ul>
+<li class="chapter" data-level="7.1" data-path="r-file.html"><a href="r-file.html#r-file-persistence"><i class="fa fa-check"></i><b>7.1</b> 영속성(Persistence)</a></li>
+<li class="chapter" data-level="7.2" data-path="r-file.html"><a href="r-file.html#r-file-open"><i class="fa fa-check"></i><b>7.2</b> 파일 열기</a></li>
+<li class="chapter" data-level="7.3" data-path="r-file.html"><a href="r-file.html#r-file-txt"><i class="fa fa-check"></i><b>7.3</b> 텍스트 파일과 라인</a></li>
+<li class="chapter" data-level="7.4" data-path="r-file.html"><a href="r-file.html#r-file-open-handler"><i class="fa fa-check"></i><b>7.4</b> 파일 읽어오기</a></li>
+<li class="chapter" data-level="7.5" data-path="r-file.html"><a href="r-file.html#r-file-search"><i class="fa fa-check"></i><b>7.5</b> 파일 검색</a></li>
+<li class="chapter" data-level="7.6" data-path="r-file.html"><a href="r-file.html#r-file-user-input"><i class="fa fa-check"></i><b>7.6</b> 사용자가 파일명을 선택하게 만들기</a></li>
+<li class="chapter" data-level="7.7" data-path="r-file.html"><a href="r-file.html#r-file-trycatch"><i class="fa fa-check"></i><b>7.7</b> tryCatch 사용하기</a></li>
+<li class="chapter" data-level="7.8" data-path="r-file.html"><a href="r-file.html#r-file-write"><i class="fa fa-check"></i><b>7.8</b> 파일에 쓰기</a></li>
+<li class="chapter" data-level="7.9" data-path="r-file.html"><a href="r-file.html#r-file-debug"><i class="fa fa-check"></i><b>7.9</b> 디버깅</a></li>
+<li class="chapter" data-level="7.10" data-path="r-file.html"><a href="r-file.html#r-file-terminology"><i class="fa fa-check"></i><b>7.10</b> 용어정의</a></li>
+<li class="chapter" data-level="7.11" data-path="r-file.html"><a href="r-file.html#r-file-ex"><i class="fa fa-check"></i><b>7.11</b> 연습문제</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="r-list.html"><a href="r-list.html"><i class="fa fa-check"></i><b>8</b> 리스트 (List)</a><ul>
+<li class="chapter" data-level="8.1" data-path="r-list.html"><a href="r-list.html#r-list-sequence"><i class="fa fa-check"></i><b>8.1</b> 리스트는 순서(sequence)다.</a></li>
+<li class="chapter" data-level="8.2" data-path="r-list.html"><a href="r-list.html#r-list-mutable"><i class="fa fa-check"></i><b>8.2</b> 리스트는 변경가능하다.</a></li>
+<li class="chapter" data-level="8.3" data-path="r-list.html"><a href="r-list.html#r-list-traversal"><i class="fa fa-check"></i><b>8.3</b> 리스트 운행법</a></li>
+<li class="chapter" data-level="8.4" data-path="r-list.html"><a href="r-list.html#--r-list-operator"><i class="fa fa-check"></i><b>8.4</b> 리스트 연산자 {r-list-operator}</a></li>
+<li class="chapter" data-level="8.5" data-path="r-list.html"><a href="r-list.html#r-list-slice"><i class="fa fa-check"></i><b>8.5</b> 리스트 슬라이스(List slices)</a></li>
+<li class="chapter" data-level="8.6" data-path="r-list.html"><a href="r-list.html#r-list-function"><i class="fa fa-check"></i><b>8.6</b> 리스트 함수</a></li>
+<li class="chapter" data-level="8.7" data-path="r-list.html"><a href="r-list.html#r-list-delete"><i class="fa fa-check"></i><b>8.7</b> 리스트 요소 삭제</a></li>
+<li class="chapter" data-level="8.8" data-path="r-list.html"><a href="r-list.html#r-list-function"><i class="fa fa-check"></i><b>8.8</b> 리스트와 함수</a></li>
+<li class="chapter" data-level="8.9" data-path="r-list.html"><a href="r-list.html#r-list-string"><i class="fa fa-check"></i><b>8.9</b> 리스트와 문자열</a></li>
+<li class="chapter" data-level="8.10" data-path="r-list.html"><a href="r-list.html#r-list-parsing"><i class="fa fa-check"></i><b>8.10</b> 라인 파싱하기(Parsing)</a></li>
+<li class="chapter" data-level="8.11" data-path="r-list.html"><a href="r-list.html#r-list-object-value"><i class="fa fa-check"></i><b>8.11</b> 객체와 값(value)</a></li>
+<li class="chapter" data-level="8.12" data-path="r-list.html"><a href="r-list.html#r-list-aliasing"><i class="fa fa-check"></i><b>8.12</b> 에일리어싱(Aliasing)</a></li>
+<li class="chapter" data-level="8.13" data-path="r-list.html"><a href="r-list.html#r-list-debug"><i class="fa fa-check"></i><b>8.13</b> 디버깅</a></li>
+<li class="chapter" data-level="8.14" data-path="r-list.html"><a href="r-list.html#r-list-terminology"><i class="fa fa-check"></i><b>8.14</b> 용어정의</a></li>
+<li class="chapter" data-level="8.15" data-path="r-list.html"><a href="r-list.html#r-list-ex"><i class="fa fa-check"></i><b>8.15</b> 연습문제</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/statkclee/r4inf" target="blank">작업 파일 원본(GitHub)</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">데이터 과학 민주화</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-list" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> 리스트 (List)</h1>
+<div id="r-list-sequence" class="section level2">
+<h2><span class="header-section-number">8.1</span> 리스트는 순서(sequence)다.</h2>
+<p>문자열처럼, 리스트(list)는 값의 순서(sequence)다. 문자열에서, 값은 문자지만, 리스트에서는 임의 자료형(type)도 될 수 있다. 리스트 값은 요소(elements)나 때때로 항목(items)으로 불린다.</p>
+<p>신규 리스틀 생성하는 방법은 여러 가지가 있다. 가장 간단한 방법은 <code>list()</code>함수로 요소를 감싸는 것이다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>)
+<span class="kw">list</span>(<span class="st">&#39;crunchy frog&#39;</span>, <span class="st">&#39;ram bladder&#39;</span>, <span class="st">&#39;lark vomit&#39;</span>)</code></pre></div>
+<p>첫번째 예제는 4개 정수 리스트다. 두번째 예제는 3개 문자열 리스트다. 문자열 요소가 동일한 자료형(type)일 필요는 없다. 다음 리스트는 문자열, 부동 소수점 숫자, 정수, (아!) 또 다른 리스트를 담고 있다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="st">&#39;spam&#39;</span>, <span class="fl">2.0</span>, <span class="dv">5</span>, <span class="kw">list</span>(<span class="dv">10</span>, <span class="dv">20</span>))</code></pre></div>
+<p>또 다른 리스트 내부에 리스트가 <strong>중첩(nested)</strong>되어 있다.</p>
+<p>어떤 요소도 담고 있지 않는 리스트를 빈 리스트(empty list)라고 부르고, <code>list()</code>로 생성한다.</p>
+<p>예상했듯이, 리스트 값을 변수에 대입할 수 있다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(cheeses &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&#39;Cheddar&#39;</span>, <span class="st">&#39;Edam&#39;</span>, <span class="st">&#39;Gouda&#39;</span>))</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;Cheddar&quot;
+## 
+## [[2]]
+## [1] &quot;Edam&quot;
+## 
+## [[3]]
+## [1] &quot;Gouda&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(numbers &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">17</span>, <span class="dv">123</span>))</code></pre></div>
+<pre><code>## [[1]]
+## [1] 17
+## 
+## [[2]]
+## [1] 123</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(empty &lt;-<span class="st"> </span><span class="kw">list</span>())</code></pre></div>
+<pre><code>## list()</code></pre>
+</div>
+<div id="r-list-mutable" class="section level2">
+<h2><span class="header-section-number">8.2</span> 리스트는 변경가능하다.</h2>
+<p>리스트 요소에 접근하는 구문은 문자열 문자에 접근하는 것과 동일한 꺾쇠 괄호 연산자다. 꺽쇠 괄호 내부 표현식은 인덱스를 명세한다. 기억할 것은 인덱스는 1 에서부터 시작한다는 것이다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cheeses[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;Cheddar&quot;</code></pre>
+<p>문자열과 마찬가지로, 리스트 항목 순서를 바꾸거나, 리스트에 새로운 항목을 다시 대입할 수 있기 때문에 리스트는 변경가능하다. 꺾쇠 괄호 연산자가 대입문 왼쪽편에 나타날 때, 새로 대입될 리스트 요소를 나타낸다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">numbers &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">17</span>, <span class="dv">123</span>)
+
+(numbers[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">5</span>)</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>리스트 numbers 첫번째 요소는 <code>123</code> 값을 가지고 있었으나, 이제 <code>5</code> 값을 가진다.</p>
+<p>리스트를 인덱스와 요소의 관계로 생각할 수 있다. 이 관계를 <strong>매핑(mapping)</strong>이라고 부른다. 각각의 인덱스는 요소 중 하나에 <strong>대응(“maps to”)</strong>된다.</p>
+<p>리스트 인덱스는 문자열 인덱스와 동일한 방식으로 동작한다.</p>
+<ul>
+<li>어떠한 정수 표현식도 인덱스로 사용할 수 있다.</li>
+<li>존재하지 않는 요소를 읽거나 쓰려고 하면, 일종의 인덱스 오류 (IndexError)로 <code>NULL</code>이 반환된다.</li>
+<li>인덱스가 음의 값이면, 해당 리스트 원소가 누락된다.</li>
+</ul>
+<p><code>%in%</code> 연산자도 또한 리스트에서 동작하니 리스트 원소로 존재하는지 여부를 판별하는데 사용할 수 있다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cheeses &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&#39;Cheddar&#39;</span>, <span class="st">&#39;Edam&#39;</span>, <span class="st">&#39;Gouda&#39;</span>)
+
+<span class="st">&#39;Edam&#39;</span> %in%<span class="st"> </span>cheeses</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&#39;Brie&#39;</span> %in%<span class="st"> </span>cheeses</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+<div id="r-list-traversal" class="section level2">
+<h2><span class="header-section-number">8.3</span> 리스트 운행법</h2>
+<p>리스트 요소를 운행하는 가장 흔한 방법은 <code>for</code>문을 사용하는 것이다. 문자열에서 사용한 것과 구문은 동일하다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(cheese in cheeses) {
+  <span class="kw">print</span>(cheese)
+}</code></pre></div>
+<pre><code>## [1] &quot;Cheddar&quot;
+## [1] &quot;Edam&quot;
+## [1] &quot;Gouda&quot;</code></pre>
+<p>리스트 요소를 읽기만 한다면 이것만으로도 잘 동작한다. 하지만, 리스트 요소를 쓰거나, 갱신하는 경우, 인텍스가 필요하다. 리스트 요소를 쓰거나 갱신하는 일반적인 방법은 <code>seq_along()</code> 함수를 조합하는 것이다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">numbers &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)
+
+for(i in <span class="kw">seq_along</span>(numbers)){
+  <span class="kw">cat</span>(<span class="st">&quot;before:&quot;</span>, numbers[[i]], <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+  numbers[[i]] &lt;-<span class="st"> </span>numbers[[i]] *<span class="st"> </span><span class="dv">2</span>
+  <span class="kw">cat</span>(<span class="st">&quot;after:&quot;</span>, numbers[[i]], <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+}</code></pre></div>
+<pre><code>## before: 1 
+## after: 2 
+## before: 2 
+## after: 4 
+## before: 3 
+## after: 6 
+## before: 4 
+## after: 8 
+## before: 5 
+## after: 10</code></pre>
+<p>상기 루프는 리스트를 운행하고 각 요소를 갱신한다. <code>seq_along()</code> 함수는 1 에서 <span class="math inline">\(n\)</span> 까지 리스트 인텍스를 반환한다. 여기서, <span class="math inline">\(n\)</span>은 리스트 길이가 된다. 매번 루프가 반복될 때마다, <code>i</code>는 다음 요소 인덱스를 얻는다. 몸통 부문 대입문은 <code>i</code>를 사용해서 요소의 이전 값을 읽고 새 값을 대입한다.</p>
+<p>빈 리스트(<code>list()</code>)에 대해서 <code>for</code>문은 결코 몸통 부문을 실행하지 않는다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(x in <span class="kw">list</span>()) {
+  <span class="kw">print</span>(<span class="st">&#39;This never happens.&#39;</span>)
+}</code></pre></div>
+<p>리스트가 또 다른 리스트를 담을 수 있지만, 중첩된 리스트는 여전히 요소 하나로 간주된다. 다음 리스트 길이는 4 이다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="st">&#39;spam&#39;</span>, <span class="dv">1</span>, <span class="kw">list</span>(<span class="st">&#39;Brie&#39;</span>, <span class="st">&#39;Roquefort&#39;</span>, <span class="st">&#39;Pol le Veq&#39;</span>), <span class="kw">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;spam&quot;
+## 
+## [[2]]
+## [1] 1
+## 
+## [[3]]
+## [[3]][[1]]
+## [1] &quot;Brie&quot;
+## 
+## [[3]][[2]]
+## [1] &quot;Roquefort&quot;
+## 
+## [[3]][[3]]
+## [1] &quot;Pol le Veq&quot;
+## 
+## 
+## [[4]]
+## [[4]][[1]]
+## [1] 1
+## 
+## [[4]][[2]]
+## [1] 2
+## 
+## [[4]][[3]]
+## [1] 3</code></pre>
+</div>
+<div id="--r-list-operator" class="section level2">
+<h2><span class="header-section-number">8.4</span> 리스트 연산자 {r-list-operator}</h2>
+<p><code>append()</code> 함수 연산자는 리스트를 추가하여 결합시킨다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)
+b &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)
+c &lt;-<span class="st"> </span><span class="kw">append</span>(a, b)</code></pre></div>
+<p>유사하게 <code>rep()</code> 함수를 활용하면 주어진 횟수만큼 리스트를 반복한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="kw">list</span>(<span class="dv">0</span>), <span class="dv">4</span>)</code></pre></div>
+<pre><code>## [[1]]
+## [1] 0
+## 
+## [[2]]
+## [1] 0
+## 
+## [[3]]
+## [1] 0
+## 
+## [[4]]
+## [1] 0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="kw">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dv">3</span>)</code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 2
+## 
+## [[3]]
+## [1] 3
+## 
+## [[4]]
+## [1] 1
+## 
+## [[5]]
+## [1] 2
+## 
+## [[6]]
+## [1] 3
+## 
+## [[7]]
+## [1] 1
+## 
+## [[8]]
+## [1] 2
+## 
+## [[9]]
+## [1] 3</code></pre>
+<p>첫 예제는 <code>list(0)</code>을 4회 반복한다. 두 번째 예제는 <code>list(1, 2, 3)</code> 리스트를 3회 반복한다.</p>
+</div>
+<div id="r-list-slice" class="section level2">
+<h2><span class="header-section-number">8.5</span> 리스트 슬라이스(List slices)</h2>
+<p>슬라이스 연산자는 리스트에도 또한 동작한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>)
+
+t[<span class="dv">2</span>:<span class="dv">3</span>]</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;b&quot;
+## 
+## [[2]]
+## [1] &quot;c&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t[<span class="dv">1</span>:<span class="dv">4</span>]</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;a&quot;
+## 
+## [[2]]
+## [1] &quot;b&quot;
+## 
+## [[3]]
+## [1] &quot;c&quot;
+## 
+## [[4]]
+## [1] &quot;d&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t[<span class="dv">4</span>:<span class="kw">length</span>(t)]</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;d&quot;
+## 
+## [[2]]
+## [1] &quot;e&quot;
+## 
+## [[3]]
+## [1] &quot;f&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t[]</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;a&quot;
+## 
+## [[2]]
+## [1] &quot;b&quot;
+## 
+## [[3]]
+## [1] &quot;c&quot;
+## 
+## [[4]]
+## [1] &quot;d&quot;
+## 
+## [[5]]
+## [1] &quot;e&quot;
+## 
+## [[6]]
+## [1] &quot;f&quot;</code></pre>
+<p>첫 번째 인덱스를 1로 지정하면, 슬라이스는 처음부터 시작한다. 두 번째 인덱스를 <code>length()</code> 함수로 리스트 길이를 지정하면, 슬라이스는 끝까지 간다. 그래서 양쪽의 인덱스를 생략하면, <code>t[]</code>같이 지정하면 슬라이스 결과는 전체 리스트를 복사한 것이 된다.</p>
+<p>리스트는 변경이 가능하기 때문에 리스트를 접고, 돌리고, 훼손하는 연산을 수행하기 전에 복사본을 만들어 두는 것이 유용하다.</p>
+<p>대입문 왼편의 슬라이스 연산자로 복수의 요소를 갱신할 수 있다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>)
+t[<span class="dv">2</span>:<span class="dv">3</span>] =<span class="st"> </span><span class="kw">list</span>(<span class="st">&#39;x&#39;</span>, <span class="st">&#39;y&#39;</span>)
+
+t</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;a&quot;
+## 
+## [[2]]
+## [1] &quot;x&quot;
+## 
+## [[3]]
+## [1] &quot;y&quot;
+## 
+## [[4]]
+## [1] &quot;d&quot;
+## 
+## [[5]]
+## [1] &quot;e&quot;
+## 
+## [[6]]
+## [1] &quot;f&quot;</code></pre>
+</div>
+<div id="r-list-function" class="section level2">
+<h2><span class="header-section-number">8.6</span> 리스트 함수</h2>
+<p>R은 리스트 자료형에 연산할수 있는 함수를 제공한다. 예를 들어, 덧붙이기 (<code>append</code>) 함수는 리스트 끝에 신규 요소를 추가한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>)
+<span class="kw">append</span>(t, <span class="st">&#39;d&#39;</span>)</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;a&quot;
+## 
+## [[2]]
+## [1] &quot;b&quot;
+## 
+## [[3]]
+## [1] &quot;c&quot;
+## 
+## [[4]]
+## [1] &quot;d&quot;</code></pre>
+<p>정렬 (order) 함수는 낮음에서 높음으로 리스트 요소를 정렬한다. 리스트에서 <code>sapply()</code> 혹은 <code>unlist()</code> 함수로 값으로 변환시키고 <code>order()</code> 함수를 통해 내림차순 혹은 오름차순으로 정렬 인덱스를 뽑아 리스트내 원소를 정렬시킨다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&#39;d&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;a&#39;</span>)
+
+t[<span class="kw">order</span>(<span class="kw">sapply</span>(t,<span class="st">&#39;[[&#39;</span>,<span class="dv">1</span>))]</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;a&quot;
+## 
+## [[2]]
+## [1] &quot;b&quot;
+## 
+## [[3]]
+## [1] &quot;c&quot;
+## 
+## [[4]]
+## [1] &quot;d&quot;
+## 
+## [[5]]
+## [1] &quot;e&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t[<span class="kw">order</span>(<span class="kw">unlist</span>(t), <span class="dt">decreasing=</span><span class="ot">TRUE</span>)]</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;e&quot;
+## 
+## [[2]]
+## [1] &quot;d&quot;
+## 
+## [[3]]
+## [1] &quot;c&quot;
+## 
+## [[4]]
+## [1] &quot;b&quot;
+## 
+## [[5]]
+## [1] &quot;a&quot;</code></pre>
+</div>
+<div id="r-list-delete" class="section level2">
+<h2><span class="header-section-number">8.7</span> 리스트 요소 삭제</h2>
+<p>리스트 요소를 삭제하는 방법이 몇 가지 있다. 리스트 요소 명칭을 알고 있다면, 리스트 요소에 <code>NULL</code>을 대입하여 삭제시킨다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a=</span><span class="st">&#39;a&#39;</span>, <span class="dt">b=</span><span class="st">&#39;b&#39;</span>, <span class="dt">c =</span> <span class="st">&#39;c&#39;</span>)
+t[[<span class="st">&quot;c&quot;</span>]] &lt;-<span class="st"> </span><span class="ot">NULL</span>
+t$c &lt;-<span class="st"> </span><span class="ot">NULL</span>
+t</code></pre></div>
+<pre><code>## $a
+## [1] &quot;a&quot;
+## 
+## $b
+## [1] &quot;b&quot;</code></pre>
+<p><code>NULL</code>을 대입하여 삭제시킨 리스트는 제거된 요소를 반환한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t[[<span class="dv">1</span>]] &lt;-<span class="st"> </span><span class="ot">NULL</span>
+t</code></pre></div>
+<pre><code>## $b
+## [1] &quot;b&quot;</code></pre>
+<p><code>t[[1]]</code> 리스트 인덱스를 통해 요소에 접근하고 <code>NULL</code>을 대입하여 삭제한다.</p>
+<p>(인덱스 혹인 리스트 요인 이름이 아닌) 제거할 요소값을 알고 있다면, 리스트 요인값을 활용해서 제거하는 것도 가능하다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a=</span><span class="st">&#39;x&#39;</span>, <span class="dt">b=</span><span class="st">&#39;y&#39;</span>, <span class="dt">c =</span> <span class="st">&#39;z&#39;</span>)
+
+t[t !=<span class="st"> &quot;y&quot;</span>]</code></pre></div>
+<pre><code>## $a
+## [1] &quot;x&quot;
+## 
+## $c
+## [1] &quot;z&quot;</code></pre>
+<p>하나 이상의 요소를 제거하기 위해서, 슬라이스 인덱스(slice index)를 사용하는 것도 가능하다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>)
+t[-<span class="kw">c</span>(<span class="dv">2</span>:<span class="dv">5</span>)]</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;a&quot;
+## 
+## [[2]]
+## [1] &quot;f&quot;</code></pre>
+<p>슬라이스는 첫번째 인덱스를 포함하고 두 번째 인덱스까지 모든 요소를 선택한다.</p>
+</div>
+<div id="r-list-function" class="section level2">
+<h2><span class="header-section-number">8.8</span> 리스트와 함수</h2>
+<p>루프를 작성하지 않고도 리스트를 빠르게 살펴볼 수 있는 리스트에 적용할 수 있는 내장함수를 활용하는 것도 방법이지만, 깔끔한 세상(tidyverse) 생태계의 일원인 <code>purrr</code> 함수형 프로그래밍 팩키지에 내장된 함수를 활용하는 것도 권장된다.</p>
+<p>하지만, 다음과 같이 1차원 리스트는 <code>unlist()</code> 함수를 활용하여 벡터로 변환해서 사용하는 것이 편리한 경우가 많다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nums &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">3</span>, <span class="dv">41</span>, <span class="dv">12</span>, <span class="dv">9</span>, <span class="dv">74</span>, <span class="dv">15</span>) %&gt;%<span class="st"> </span>unlist
+
+<span class="kw">length</span>(nums)</code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(nums)</code></pre></div>
+<pre><code>## [1] 74</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">min</span>(nums)</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(nums)</code></pre></div>
+<pre><code>## [1] 154</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(nums) /<span class="st"> </span><span class="kw">length</span>(nums)</code></pre></div>
+<pre><code>## [1] 25.66667</code></pre>
+<p><code>sum()</code>, <code>max()</code>, <code>length()</code> 등 함수는 입력 자료형이 무엇이냐에 따라 다르게 동작할 수 있고, 입력 자료형에 결측값 등 특이값이 들어있는 경우 기대했던 결과가 나올 수 없으니 필히 자료형을 사전에 점검하고 활용하도록 한다.</p>
+<p>리스트를 사용해서, 앞서 작성한 프로그램을 다시 작성해서 사용자가 입력한 숫자 목록 평균을 계산한다.</p>
+<p>우선 리스트 없이 평균을 계산하는 프로그램:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 프로그램 명칭: `list_average.R`
+total &lt;-<span class="st"> </span><span class="dv">0</span>
+count &lt;-<span class="st"> </span><span class="dv">0</span>
+
+while (<span class="ot">TRUE</span>) {
+  inp &lt;-<span class="st"> </span><span class="kw">readline</span>(<span class="st">&#39;Enter a number: &#39;</span>)
+  if(inp ==<span class="st"> &#39;done&#39;</span>) break
+
+  value &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(inp)
+  total &lt;-<span class="st"> </span>total +<span class="st"> </span>value
+  count &lt;-<span class="st"> </span>count +<span class="st"> </span><span class="dv">1</span>
+}
+
+average &lt;-<span class="st"> </span>total /<span class="st"> </span>count
+<span class="kw">cat</span>(<span class="st">&#39;Average:&#39;</span>, average)</code></pre></div>
+<p>상기 프로그램에서, <code>count</code> 와 <code>sum</code> 변수를 사용해서 반복적으로 사용자가 숫자를 입력하면 값을 저장하고, 지금까지 사용자가 입력한 누적 합계를 계산한다. R 콘솔에서 <code>source()</code> 함수를 사용해서 실행한 결과는 다음과 같다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">source</span>(<span class="st">&quot;code/list_average.R&quot;</span>)
+Enter a number:<span class="st"> </span><span class="dv">10</span>
+Enter a number:<span class="st"> </span><span class="dv">20</span>
+Enter a number:<span class="st"> </span><span class="dv">30</span>
+Enter a number:<span class="st"> </span>done
+Average:<span class="st"> </span><span class="dv">20</span></code></pre></div>
+<p>단순하게, 사용자가 입력한 각 숫자를 기억하고 내장함수를 사용해서 프로그램 마지막에 합계와 갯수를 계산한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 프로그램 명칭: `list_datatype.R`
+numlist &lt;-<span class="st"> </span><span class="kw">list</span>()
+
+while (<span class="ot">TRUE</span>) {
+  inp &lt;-<span class="st"> </span><span class="kw">readline</span>(<span class="st">&#39;Enter a number: &#39;</span>)
+  if(inp ==<span class="st"> &#39;done&#39;</span>) break
+
+  value &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(inp)
+  numlist &lt;-<span class="st"> </span><span class="kw">append</span>(numlist, value)
+}
+
+num_vector &lt;-<span class="st"> </span><span class="kw">unlist</span>(numlist)
+
+average &lt;-<span class="st"> </span><span class="kw">sum</span>(num_vector) /<span class="st"> </span><span class="kw">length</span>(num_vector)
+<span class="kw">cat</span>(<span class="st">&#39;List Average:&#39;</span>, average)</code></pre></div>
+<p>루프가 시작되기 전 빈 리스트를 생성하고, 매번 숫자를 입력할 때마다 숫자를 리스트에 추가한다. 프로그램 마지막에 간단하게 리스트 총합을 계산하고, 평균을 산출하기 위해서 입력한 숫자 개수로 나눈다. R 콘솔에서 <code>source()</code> 함수를 사용해서 실행한 결과는 다음과 같다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">source</span>(<span class="st">&quot;code/list_datatype-average.R&quot;</span>)
+Enter a number:<span class="st"> </span><span class="dv">40</span>
+Enter a number:<span class="st"> </span><span class="dv">50</span>
+Enter a number:<span class="st"> </span><span class="dv">60</span>
+Enter a number:<span class="st"> </span>done
+List Average:<span class="st"> </span><span class="dv">50</span></code></pre></div>
+</div>
+<div id="r-list-string" class="section level2">
+<h2><span class="header-section-number">8.9</span> 리스트와 문자열</h2>
+<p>문자열(string)은 <strong>문자 순서(sequence)</strong>이고, 리스트는 <strong>값 순서(sequence)</strong>이다. 하지만 리스트 문자는 문자열과 같지는 않다. 문자열을 리스트 문자로 변환하기 위해서, <code>strsplit()</code> 함수를 사용한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s &lt;-<span class="st"> &#39;spam&#39;</span>
+t &lt;-<span class="st"> </span><span class="kw">strsplit</span>(s, <span class="ot">NULL</span>)[[<span class="dv">1</span>]] %&gt;%<span class="st"> </span><span class="kw">strsplit</span>(<span class="ot">NULL</span>)
+t</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;s&quot;
+## 
+## [[2]]
+## [1] &quot;p&quot;
+## 
+## [[3]]
+## [1] &quot;a&quot;
+## 
+## [[4]]
+## [1] &quot;m&quot;</code></pre>
+<p><code>list</code>는 내장함수 이름이기 때문에, 변수명으로 사용하는 것을 피해야 한다. <code>l</code>을 사용하면 1 처럼 보이기 때문에 가능하면 피한다. 그래서, <code>t</code>를 사용했다.</p>
+<p><code>strsplit()</code> 함수는 문자열을 구분자(이번 경우에는 <code>NULL</code>)를 사용해서 문자 각각으로 쪼갠다. 문자열 단어로 쪼개려면, 구분자를 바꿔 예를 들어 공백을 기준으로 쪼갠다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&#39;pining for the fjords&#39;</span>)
+t &lt;-<span class="st"> </span><span class="kw">strsplit</span>(s[[<span class="dv">1</span>]], <span class="st">&quot; &quot;</span>)[[<span class="dv">1</span>]] %&gt;%<span class="st"> </span><span class="kw">strsplit</span>(<span class="st">&quot; &quot;</span>)
+t</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;pining&quot;
+## 
+## [[2]]
+## [1] &quot;for&quot;
+## 
+## [[3]]
+## [1] &quot;the&quot;
+## 
+## [[4]]
+## [1] &quot;fjords&quot;</code></pre>
+<p>분할 함수를 사용해서 문자열을 리스트 토큰으로 쪼개면, 인덱스 연산자(‘[]’)를 사용하여 리스트의 특정 단어를 볼 수 있다.</p>
+<p>옵션 인자로 단어 경계로 어떤 문자를 사용할 것인지 지정하는데 사용되는 구분자 (delimiter)를 활용하여 분할 <code>strsplit()</code> 함수를 호출한다. 다음 예제는 구분자로 하이픈(‘-’)을 사용한 사례다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&#39;spam-spam-spam&#39;</span>)
+delimiter &lt;-<span class="st"> &#39;-&#39;</span>
+<span class="kw">strsplit</span>(s[[<span class="dv">1</span>]], delimiter)[[<span class="dv">1</span>]] %&gt;%<span class="st"> </span><span class="kw">strsplit</span>(<span class="st">&quot; &quot;</span>)</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;spam&quot;
+## 
+## [[2]]
+## [1] &quot;spam&quot;
+## 
+## [[3]]
+## [1] &quot;spam&quot;</code></pre>
+<p>합병 (<code>paste</code>) 함수는 분할 (<code>strsplit</code>) 함수의 역이다. 문자열 리스트를 받아 리스트 요소를 연결한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&#39;pining&#39;</span>, <span class="st">&#39;for&#39;</span>, <span class="st">&#39;the&#39;</span>, <span class="st">&#39;fjords&#39;</span>)
+delimiter &lt;-<span class="st"> &#39; &#39;</span>
+<span class="kw">paste0</span>(t, delimiter, <span class="dt">collapse =</span> <span class="st">&quot;&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;pining for the fjords &quot;</code></pre>
+<p>상기의 경우, 구분자가 공백 문자여서 결합 (paste) 함수가 단어 사이에 공백을 넣는다. 공백없이 문자열을 결합하기 위해서, 구분자로 빈 문자열 ’’을 사용한다.</p>
+</div>
+<div id="r-list-parsing" class="section level2">
+<h2><span class="header-section-number">8.10</span> 라인 파싱하기(Parsing)</h2>
+<p>파일을 읽을 때 통상, 단지 전체 라인을 출력하는 것 말고 뭔가 다른 것을 하고자 한다. 종종 “흥미로운 라인을” 찾아서 라인을 파싱(parse)하여 흥미로운 부분을 찾고자 한다. “From”으로 시작하는 라인에서 요일을 찾고자 하면 어떨까?</p>
+<p><code>From stephen.marquard@uct.ac.za</code> <strong>Sat</strong> <code>Jan  5 09:14:16 2008</code></p>
+<p>이런 종류의 문제에 직면했을 때, <code>stringr</code> 팩키지 분할 <code>str_split()</code> 함수가 매우 효과적이다. 작은 프로그램을 작성하여 “From”으로 시작하는 라인을 찾고 <code>str_split()</code> 함수로 파싱하고 라인의 흥미로운 부분을 출력한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fhand &lt;-<span class="st"> </span><span class="kw">file</span>(<span class="st">&#39;data/mbox-short.txt&#39;</span>, <span class="st">&quot;r&quot;</span>)
+for(line in <span class="kw">readLines</span>(fhand)) {
+  line &lt;-<span class="st"> </span>stringr::<span class="kw">str_trim</span>(line)
+  if(!stringr::<span class="kw">str_detect</span>(line, <span class="st">&quot;^From &quot;</span>)) next
+  
+  words &lt;-<span class="st"> </span>stringr::<span class="kw">str_split</span>(line, <span class="st">&quot; &quot;</span>)[[<span class="dv">1</span>]]
+  <span class="kw">cat</span>(words[<span class="dv">3</span>], <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+}</code></pre></div>
+<p><code>if</code> 문의 축약 형태를 사용하여 <code>next</code> 문을 <code>if</code>문과 동일한 라인에 놓았다. <code>if</code> 문 축약 형태는 <code>next</code> 문을 들여쓰기를 다음 라인에 한 것과 동일하다.</p>
+<p>프로그램은 다음을 출력한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Sat
+Fri
+Fri
+Fri
+...</code></pre></div>
+<p>나중에, 매우 정교한 기술에 대해서 학습해서 정확하게 검색하는 비트(bit) 수준 정보를 찾아 내기 위해서 작업할 라인을 선택하고, 어떻게 해당 라인을 뽑아낼 것이다.</p>
+</div>
+<div id="r-list-object-value" class="section level2">
+<h2><span class="header-section-number">8.11</span> 객체와 값(value)</h2>
+<p>다음 대입문을 실행하면,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> &#39;banana&#39;</span>
+b &lt;-<span class="st"> &#39;banana&#39;</span></code></pre></div>
+<p><code>a</code> 와 <code>b</code> 모두 문자열을 참조하지만, 두 변수가 동일한 문자열을 참조하는지 알 수 없다. 두 가지 가능한 상태가 있다.</p>
+<p><img src="fig/list-reference.png" alt="문자열 참조" width="77%" /></p>
+<p>한 가지 경우는 <code>a</code> 와 <code>b</code>가 같은 값을 가지는 다른 두 객체를 참조하는 것이다. 두 번째 경우는 같은 객체를 참조하는 것이다.</p>
+<p>두 변수가 동일한 객체를 참조하는지를 확인하기 위해서, 파이썬에서는 <code>is</code> 연산자가 사용된다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="er">&gt;&gt;</span><span class="st"> </span>a =<span class="st"> &#39;banana&#39;</span>
+&gt;<span class="er">&gt;&gt;</span><span class="st"> </span>b =<span class="st"> &#39;banana&#39;</span>
+&gt;<span class="er">&gt;&gt;</span><span class="st"> </span>a is b
+True</code></pre></div>
+<p>이 경우, 파이썬은 하나의 문자열 객체를 생성하고 <code>a</code> 와 <code>b</code> 모두 동일한 객체를 참조한다.</p>
+<p>하지만, 리스트 두 개를 생성할 때, 객체가 두 개다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="er">&gt;&gt;</span><span class="st"> </span>a =<span class="st"> </span>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+&gt;<span class="er">&gt;&gt;</span><span class="st"> </span>b =<span class="st"> </span>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+&gt;<span class="er">&gt;&gt;</span><span class="st"> </span>a is b
+False</code></pre></div>
+<p>상기의 경우, 두 개의 리스트는 동등하다고 말할 수 있다. 왜냐하면 동일한 요소를 가지고 있기 때문이다. 하지만, 같은 객체는 아니기 때문에 동일하지는 않다. 두 개의 객체가 동일하다면, 두 객체는 또한 등등하다. 하지만, 동등하다고 해서 반듯이 동일하지는 않다.</p>
+<p>지금까지 “객체(object)”와 “값(value)”을 구분 없이 사용했지만, 객체가 값을 가진다라고 말하는 것이 좀더 정확하다. <code>a = [1,2,3]</code> 을 실행하면, <code>a</code> 는 특별한 순서 요소값을 갖는 리스트 객체로 참조한다. 만약 또 다른 리스트가 동일한 요소를 가진다면, 그 리스트는 같은 값을 가진다고 말한다.</p>
+<p>R도 이와 유사하게 참조와 복사에 대해 동일한 개념을 활용하여 처리한다.</p>
+</div>
+<div id="r-list-aliasing" class="section level2">
+<h2><span class="header-section-number">8.12</span> 에일리어싱(Aliasing)</h2>
+<p><code>a</code>가 객체를 참조하고, <code>b &lt;- a</code> 대입하다면, 두 변수는 동일한 객체를 참조한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)
+b &lt;-<span class="st"> </span>a
+
+a &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)
+
+<span class="kw">identical</span>(a, b)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>객체와 변수의 연관짖는 것을 <strong>참조(reference)</strong>라고 한다. 상기의 경우 동일한 객체에 두 개의 참조가 있다.</p>
+<p>하나 이상의 참조를 가진 객체는 한개 이상의 이름을 갖게 되어서, 객체가 <strong>에일리어스(aliased)</strong> 되었다고 한다.</p>
+<p>만약 에일리어스된 객체가 변경 가능하면, 변화의 여파는 다른 객체에도 파급된다.</p>
+<p>이와 같은 행동이 유용하기도 하지만, 오류를 발생시키기도 쉽다. 일반적으로, <strong>변경가능한 객체(mutable object)</strong>로 작업할 때 에일리어싱을 피하는 것이 안전하다.</p>
+<p>파이썬 문자열 같이 변경 불가능한 객체에 에일리어싱은 그렇게 문제가 되지 않는다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="er">&gt;&gt;</span><span class="st"> </span>a =<span class="st"> &#39;banana&#39;</span>
+&gt;<span class="er">&gt;&gt;</span><span class="st"> </span>b =<span class="st"> &#39;banana&#39;</span></code></pre></div>
+<p>상기 예제에서, <code>a</code> 와 <code>b</code>가 동일한 문자열을 참조하든 참조하지 않든 거의 차이가 없다.</p>
+</div>
+<div id="r-list-debug" class="section level2">
+<h2><span class="header-section-number">8.13</span> 디버깅</h2>
+<p>부주의한 리스트 사용이나 변경가능한 객체를 사용하는 경우 디버깅을 오래 할 수 있다. 다음에 일반적인 함정 유형과 회피하는 방법을 소개한다.</p>
+<ol style="list-style-type: decimal">
+<li><strong>관용구를 선택하고 고수하라.</strong></li>
+</ol>
+<p>리스트와 관련된 문제 일부는 리스트를 가지고 할 수 있는 것이 너무 많다는 것이다.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>에일리어싱을 회피하기 위해서 사본 만들기.</strong></li>
+</ol>
+<p>인자를 변경하는 정렬 (sort)같은 메쏘드를 사용하지만, 원 리스트도 보관되길 원한다면, 사본을 만든다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">orig &lt;-<span class="st"> </span>t
+t[<span class="kw">t</span>(<span class="kw">unlist</span>(t), <span class="dt">decreasing=</span><span class="ot">TRUE</span>)]</code></pre></div>
+<p>상기 예제에서 원 리스트는 그대로 둔 상태로 새로 정렬된 리스트를 반환된 결과는 <code>t</code>에 저장한다. 하지만 이 경우에는, 변수명으로 <code>sorted</code>를 사용하는 것을 피해야 한다!</p>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>리스트, 분할 (split), 파일</strong></li>
+</ol>
+<p>파일을 읽고 파싱할 때, 프로그램이 중단될 수 있는 입력값을 마주할 수많은 기회가 있다. 그래서 파일을 훑어 “건초더미에서 바늘”을 찾는 프로그램을 작성할 때 사용한 가디언 패턴(guardian pattern)을 다시 살펴보는 것은 좋은 생각이다.</p>
+<p>파일 라인에서 요일을 찾는 프로그램을 다시 살펴보자.</p>
+<p><code>From stephen.marquard@uct.ac.za</code> <strong>Sat</strong> <code>Jan  5 09:14:16 2008</code></p>
+<p>각 라인을 단어로 나누었기 때문에, startswith를 사용하지 않고, 라인에 관심있는 단어가 있는지 살펴보기 위해서 단순하게 각 라인의 첫 단어를 살펴본다. 다음과 같이 continue 문을 사용해서 “From”이 없는 라인을 건너 뛴다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fhand &lt;-<span class="st"> </span><span class="kw">file</span>(<span class="st">&#39;data/mbox-short.txt&#39;</span>, <span class="st">&quot;r&quot;</span>)
+for(line in <span class="kw">readLines</span>(fhand)) {
+  if(!stringr::<span class="kw">str_detect</span>(line, <span class="st">&quot;^From &quot;</span>)) next
+  
+  words &lt;-<span class="st"> </span>stringr::<span class="kw">str_split</span>(line, <span class="st">&quot; &quot;</span>)[[<span class="dv">1</span>]]
+  <span class="kw">cat</span>(words[<span class="dv">3</span>], <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+}</code></pre></div>
+<p>프로그램이 훨씬 간단하고, 파일 끝에 있는 새줄(newline)을 제거하기 위해 <code>str_trim()</code> 함수를 사용할 필요도 없다. 하지만, 더 좋아졌는가?</p>
+<p>작동하는 것 같지만, 경우에 따라서 첫줄에 Sat 를 출력하고 나서 오류로 프로그램이 정상 동작에 실패하는 경우도 있다. 무엇이 잘못되었을까? 어딘가 엉망이 된 데이터가 있어 우아하고, 총명하며, 매우 R스러운 프로그램을 망가뜨린건가?</p>
+<p>오랜 동안 프로그램을 응시하고 머리를 짜내거나, 다른 사람에게 도움을 요청할 수 있지만, 빠르고 현명한 접근법은 <code>print()</code>문을 추가하는 것이다. <code>print()</code>문을 넣는 가장 좋은 장소는 프로그램이 동작하지 않는 라인 앞이 적절하고, 프로그램 실패를 야기할 것 같은 데이터를 출력한다.</p>
+<p>이 접근법이 많은 라인을 출력하지만, 즉석에서 문제에 대해서 손에 잡히는 단서는 최소한 준다. 그래서 words를 출력하는 출력문을 5번째 라인 앞에 추가한다. “Debug:”를 접두어로 라인에 추가하여, 정상적인 출력과 디버그 출력을 구분한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fhand &lt;-<span class="st"> </span><span class="kw">file</span>(<span class="st">&#39;data/mbox-short.txt&#39;</span>, <span class="st">&quot;r&quot;</span>)
+for(line in <span class="kw">readLines</span>(fhand)) {
+  line &lt;-<span class="st"> </span>stringr::<span class="kw">str_trim</span>(line)
+  <span class="kw">cat</span>(<span class="st">&quot;Debug&quot;</span>, line, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+  if(!stringr::<span class="kw">str_detect</span>(line, <span class="st">&quot;^From &quot;</span>)) next
+  
+  words &lt;-<span class="st"> </span>stringr::<span class="kw">str_split</span>(line, <span class="st">&quot; &quot;</span>)[[<span class="dv">1</span>]]
+  <span class="kw">cat</span>(words[<span class="dv">3</span>], <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+}</code></pre></div>
+<p>프로그램을 실행할 때, 많은 출력결과가 스크롤되어 화면 위로 지나간다. 마지막에 디버그 결과물과 역추적(traceback)을 보고 역추적(traceback) 바로 앞에서 무슨 일이 생겼는지 알 수 있다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Debug:<span class="st"> &#39;X-DSPAM-Confidence:&#39;</span>, <span class="st">&#39;0.8475&#39;</span>
+Debug:<span class="st"> &#39;X-DSPAM-Probability:&#39;</span>, <span class="st">&#39;0.0000&#39;</span>
+Debug:<span class="st"> </span></code></pre></div>
+<p>각 디버그 라인은 리스트 단어를 출력하는데, 라인을 분할 <code>str_split()</code> 함수를 활용하여 단어로 만들 때 얻어진다. 프로그램이 실패할 때 리스트 단어는 비었다 ’’. 텍스트 편집기로 파일을 열어 살펴보면 그 지점은 다음과 같다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X-DSPAM-Result:<span class="st"> </span>Innocent
+X-DSPAM-Processed:<span class="st"> </span>Sat Jan <span class="dv">5</span> <span class="dv">09</span>:<span class="dv">14</span>:<span class="dv">16</span> <span class="dv">2008</span>
+X-DSPAM-Confidence:<span class="st"> </span><span class="fl">0.8475</span>
+X-DSPAM-Probability:<span class="st"> </span><span class="fl">0.0000</span>
+
+Details:<span class="st"> </span>http:<span class="er">//</span>source.sakaiproject.org/viewsvn/?view=rev&amp;rev=<span class="dv">39772</span></code></pre></div>
+<p>프로그램이 빈 라인을 만났을 때, 오류가 발생한다. 물론, 빈 라인은 ‘0’ 단어 (“zero words”)다. 프로그램을 작성할 때, 왜 이것을 생각하지 못했을까? 첫 단어(word[1])가 “From”과 일치하는지 코드가 점검할 때, “인덱스 범위 오류(index out of range)”가 발생한다.</p>
+<p>물론, 첫 단어가 없다면 첫 단어 점검을 회피하는 <strong>가디언 코드(guardian code)</strong>를 삽입하기 최적 장소이기는 하다. 코드를 보호하는 방법은 많다. 첫 단어를 살펴보기 전에 단어의 갯수를 확인하는 방법을 택한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fhand &lt;-<span class="st"> </span><span class="kw">file</span>(<span class="st">&#39;data/mbox-short.txt&#39;</span>, <span class="st">&quot;r&quot;</span>)
+for(line in <span class="kw">readLines</span>(fhand)) {
+  line &lt;-<span class="st"> </span>stringr::<span class="kw">str_trim</span>(line)
+  <span class="co"># cat(&quot;Debug&quot;, line, &quot;\n&quot;)</span>
+  if(<span class="kw">length</span>(words) ==<span class="st"> </span><span class="dv">0</span>) next
+  if(!stringr::<span class="kw">str_detect</span>(line, <span class="st">&quot;^From &quot;</span>)) next
+  
+  words &lt;-<span class="st"> </span>stringr::<span class="kw">str_split</span>(line, <span class="st">&quot; &quot;</span>)[[<span class="dv">1</span>]]
+  <span class="kw">cat</span>(words[<span class="dv">3</span>], <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+}</code></pre></div>
+<p>변경한 코드가 실패해서 다시 디버그할 경우를 대비해서, <code>print</code>문을 제거하는 대신에 <code>print</code>문을 주석 처리한다. 그리고 나서, 단어가 ‘0’ 인지를 살펴보고 만약 ‘0’ 이면, 파일 다음 라인으로 건너뛰도록 <code>next</code>문을 사용하는 가디언 문장(guardian statement)을 추가한다.</p>
+<p>두 개 <code>next</code>문이 “흥미롭고” 좀더 처리가 필요한 라인 집합을 정제하도록 돕는 것으로 생각할 수 있다. 단어가 없는 라인은 “흥미 없어서” 다음 라인으로 건너뛴다. 첫 단어에 “From”이 없는 라인도 “흥미 없어서” 건너뛴다.</p>
+<p>변경된 프로그램이 성공적으로 실행되어서, 아마도 올바르게 작성된 것으로 보인다. 가디언 문장(guardian statement)이 <code>words[1]</code>가 정상작동할 것이라는 것을 확인해 주지만, 충분하지 않을 수도 있다. 프로그램을 작성할 때, “무엇이 잘못 될 수 있을까?”를 항상 생각해야만 한다.</p>
+<p><strong>연습문제:</strong> 상기 프로그램의 어느 라인이 여전히 적절하게 보호되지 않은지를 생각해 보세요. 텍스트 파일을 구성해서 프로그램이 실패하도록 만들 수 있는지 살펴보세요. 그리고 나서, 프로그램을 변경해서 라인이 적절하게 보호되게 하고, 새로운 텍스트 파일을 잘 다룰 수 있도록 시험하세요.</p>
+<p><strong>연습문제:</strong> 두 <code>if</code> 문 없이, 상기 예제의 가디언 코드(guardian code)를 다시 작성하세요. 대신에 단일 <code>if</code>문과 <code>&amp;</code> 논리 연산자를 사용하는 복합 논리 표현식을 사용하세요.</p>
+</div>
+<div id="r-list-terminology" class="section level2">
+<h2><span class="header-section-number">8.14</span> 용어정의</h2>
+<ul>
+<li><strong>에일리어싱(aliasing)</strong>: 하나 혹은 그 이상의 변수가 동일한 객체를 참조하는 상황.</li>
+<li><strong>구분자(delimiter)</strong>: 문자열이 어디서 분할되어져야 할지를 표기하기 위해서 사용되는 문자나 문자열.</li>
+<li><strong>요소(element)</strong>: 리스트 혹은 다른 순서(sequence) 값의 하나로 항목(item)이라고도 한다.</li>
+<li><strong>동등한(equivalent)</strong>: 같은 값을 가짐.</li>
+<li><strong>인덱스(index)</strong>: 리스트의 요소를 지칭하는 정수 값.</li>
+<li><strong>동일한(identical)</strong>: 동등을 함축하는 같은 객체임.</li>
+<li><strong>리스트(list)</strong>: 순서(sequence) 값.</li>
+<li><strong>리스트 운행법(list traversal)</strong>: 리스트의 각 요소를 순차적으로 접근함.</li>
+<li><strong>중첩 리스트(nested list)</strong>: 또 다른 리스트의 요소인 리스트.</li>
+<li><strong>객체(object)</strong>: 변수가 참조할 수 있는 무엇. 객체는 자료형(type)과 값(value)을 가진다.</li>
+<li><strong>참조(reference)</strong>: 변수와 값의 연관.</li>
+</ul>
+</div>
+<div id="r-list-ex" class="section level2">
+<h2><span class="header-section-number">8.15</span> 연습문제</h2>
+<ol style="list-style-type: decimal">
+<li><a href="http://www.py4inf.com/code/romeo.txt" class="uri">http://www.py4inf.com/code/romeo.txt</a>에서 파일 사본을 다운로드 받으세요. <code>romeo.txt</code> 파일을 열어, 한 줄씩 읽어들이는 프로그램을 작성하세요. 각 라인마다 stringr 팩키지에서 분할 <code>str_split()</code> 함수를 사용하여 라인을 단어 리스트로 쪼개세요.</li>
+</ol>
+<p>각 단어마다, 단어가 이미 리스트에 존재하는지를 확인하세요. 만약 단어가 리스트에 없다면, 리스트에 새 단어로 추가하세요.</p>
+<p>프로그램이 완료되면, 알파벳 순으로 결과 단어를 정렬하고 출력하세요.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Enter file:<span class="st"> </span>romeo.txt
+[<span class="dv">1</span>] <span class="st">&#39;Arise&#39;</span>, <span class="st">&#39;But&#39;</span>, <span class="st">&#39;It&#39;</span>, <span class="st">&#39;Juliet&#39;</span>, <span class="st">&#39;Who&#39;</span>, <span class="st">&#39;already&#39;</span>,
+<span class="st">&#39;and&#39;</span>, <span class="st">&#39;breaks&#39;</span>, <span class="st">&#39;east&#39;</span>, <span class="st">&#39;envious&#39;</span>, <span class="st">&#39;fair&#39;</span>, <span class="st">&#39;grief&#39;</span>,
+<span class="st">&#39;is&#39;</span>, <span class="st">&#39;kill&#39;</span>, <span class="st">&#39;light&#39;</span>, <span class="st">&#39;moon&#39;</span>, <span class="st">&#39;pale&#39;</span>, <span class="st">&#39;sick&#39;</span>, <span class="st">&#39;soft&#39;</span>,
+<span class="st">&#39;sun&#39;</span>, <span class="st">&#39;the&#39;</span>, <span class="st">&#39;through&#39;</span>, <span class="st">&#39;what&#39;</span>, <span class="st">&#39;window&#39;</span>,
+<span class="st">&#39;with&#39;</span>, <span class="st">&#39;yonder&#39;</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>전자우편 데이터를 읽어 들이는 프로그램을 작성하세요. “From”으로 시작하는 라인을 발견했을 때, stringr 팩키지에서 분할 <code>str_split()</code> 함수를 사용하여 라인을 단어로 쪼개세요. “From” 라인의 두번째 단어, 누가 메시지를 보냈는지에 관심이 있다.</li>
+</ol>
+<p><code>From stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008</code></p>
+<p>“From” 라인을 파싱하여 각 “From”라인의 두번째 단어를 출력한다. 그리고 나서, “From:”이 아닌 “From”라인 갯수를 세고, 끝에 갯수를 출력한다.</p>
+<p>여기 몇 줄을 삭제한 출력 예시가 있다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Rscript fromcount.R
+Enter a file name:<span class="st"> </span>mbox-short.txt
+
+stephen.marquard@uct.ac.za
+louis@media.berkeley.edu
+zqian@umich.edu
+
+[...some output removed...]
+
+ray@media.berkeley.edu
+cwen@iupui.edu
+cwen@iupui.edu
+cwen@iupui.edu
+
+There were <span class="dv">27</span> lines in the file with From as the first word</code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>사용자가 숫자 리스트를 입력하고, 입력한 숫자 중에 최대값과 최소값을 출력하고 사용자가 “done”을 입력할 때 종료하는 프로그램을 다시 작성하세요. 사용자가 입력한 숫자를 리스트에 저장하고, <code>max()</code> 과 <code>min()</code> 함수를 사용하여 루프가 끝나면, 최대값과 최소값을 출력하는 프로그램을 작성하세요.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Enter a number:<span class="st"> </span><span class="dv">6</span>
+Enter a number:<span class="st"> </span><span class="dv">2</span>
+Enter a number:<span class="st"> </span><span class="dv">9</span>
+Enter a number:<span class="st"> </span><span class="dv">3</span>
+Enter a number:<span class="st"> </span><span class="dv">5</span>
+Enter a number:<span class="st"> </span>done
+Maximum:<span class="st"> </span><span class="fl">9.0</span>
+Minimum:<span class="st"> </span><span class="fl">2.0</span></code></pre></div>
+
+<div id="refs" class="references">
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-file.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/statkclee/r4inf/edit/master/08-list.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
